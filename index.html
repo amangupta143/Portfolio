@@ -1,183 +1,276 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
-
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aman Gupta - Coming Soon</title>
+    <style>
+        :root {
+            --primary: #2563eb;
+            --background: #f8fafc;
+            --text: #1e293b;
+            --secondary: #64748b;
+            --gradient: linear-gradient(135deg, #2563eb, #4f46e5);
+        }
 
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Aman Gupta ❤️</title>
-  <link rel="icon" href="icon1.png">
-  <link rel="stylesheet" href="css/styles.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Belgrano&family=Flamenco&family=Sofia&display=swap" rel="stylesheet">
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: system-ui, -apple-system, sans-serif;
+        }
 
+        body {
+            background-color: var(--background);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+            min-height: 100vh;
+            background-image: 
+                radial-gradient(circle at 100% 100%, rgba(37, 99, 235, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 0% 0%, rgba(79, 70, 229, 0.1) 0%, transparent 50%);
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        #hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            display: flex;
+            align-items: center;
+            gap: 4rem;
+        }
+
+        .hero-text {
+            max-width: 600px;
+        }
+
+        .profile-image {
+            width: 280px;
+            height: 280px;
+            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+            object-fit: cover;
+            border: 4px solid white;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+            animation: morphing 10s ease-in-out infinite;
+        }
+
+        @keyframes morphing {
+            0% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
+            25% { border-radius: 58% 42% 75% 25% / 76% 46% 54% 24%; }
+            50% { border-radius: 50% 50% 33% 67% / 55% 27% 73% 45%; }
+            75% { border-radius: 33% 67% 58% 42% / 63% 68% 32% 37%; }
+            100% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
+        }
+
+        .hero-name {
+            font-size: 4.5rem;
+            margin-bottom: 0.5rem;
+            line-height: 1.1;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-title {
+            font-size: 2.25rem;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: var(--secondary);
+            margin-bottom: 2rem;
+            max-width: 500px;
+        }
+
+        .announcement-banner {
+            width: 100%;
+            padding: 0.75rem;
+            background: rgba(100, 116, 139, 0.05);
+            border-bottom: 1px solid rgba(100, 116, 139, 0.1);
+            color: var(--secondary);
+            font-size: 0.875rem;
+            text-align: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            backdrop-filter: blur(8px);
+        }
+
+        .announcement-text {
+            max-width: 600px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .announcement-icon {
+            display: inline-flex;
+            align-items: center;
+        }
+
+        /* Adjust hero section to account for banner */
+        #hero {
+            padding-top: 3rem;
+        }
+
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: var(--gradient);
+            color: white;
+            text-decoration: none;
+            border-radius: 0.75rem;
+            font-weight: 500;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            margin-top: 1.5rem;
+            box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.2);
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: 0.5s;
+        }
+
+        .cta-button:hover::before {
+            left: 100%;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.3);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .social-link {
+            color: var(--secondary);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            background: white;
+            box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .social-link:hover {
+            color: var(--primary);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .social-link span {
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        @media (max-width: 768px) {
+            .hero-content {
+                flex-direction: column-reverse;
+                text-align: center;
+                gap: 2rem;
+            }
+
+            .hero-name {
+                font-size: 3rem;
+            }
+
+            .hero-title {
+                font-size: 1.75rem;
+            }
+
+            .social-links {
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+        }
+    </style>
 </head>
-
 <body>
-
-  <div id="home" class="first-div">
-    <br><br><br><br>
-    <div class="images">
-      <img class="dp" src="images/ps1.jpg" alt="">
-      </br>
-      <img class="dp-cover" src="images/1st.png" alt="">
-    </div>
-    <div class="intro">
-      <h1 class="name">I'm Aman.</h1>
-      <p class="designation">a web designer.</p>
-    </div>
-  </div>
-  <div id="about" class="second-div">
-    <br><br><br><br>
-    <h1 class="about">About</h1>
-    <hr class="blue-hr">
-    <br><br>
-    <p class="about-description">I'm a web designer and devloper.
-      </br>Computer programming is my hobby.
-      </br>I ❤️ coffee with code.</p>
-    <br><br><br><br><br><br><br>
-  </div>
-  <div id="skills" class="third-div">
-    <br><br><br><br>
-    <h1>Skills</h1>
-    <hr class="white-hr">
-    <br><br>
-    <div class="skills-div">
-      <table class="skills">
-        <tr>
-          <td class="skills-td">HTML</td>
-          <td class="skills-td">⭐⭐⭐⭐⭐</td>
-        </tr>
-        <tr>
-          <td class="skills-td">CSS</td>
-          <td class="skills-td">⭐⭐⭐⭐</td>
-        </tr>
-        <tr>
-          <td class="skills-td">Javascript</td>
-          <td class="skills-td">⭐⭐</td>
-        </tr>
-        <tr>
-          <td class="skills-td">Node</td>
-          <td class="skills-td">⚒️⚒️⚒️⚒️⚒️</td>
-        </tr>
-      </table>
-      <table class="skills">
-        <tr>
-          <td class="skills-td">React</td>
-          <td class="skills-td">⚒️⚒️⚒️⚒️⚒️</td>
-        </tr>
-        <tr>
-          <td class="skills-td">MangoDB</td>
-          <td class="skills-td">⚒️⚒️⚒️⚒️⚒️</td>
-        </tr>
-        <tr>
-          <td class="skills-td">WEB3</td>
-          <td class="skills-td">⚒️⚒️⚒️⚒️⚒️</td>
-        </tr>
-        <tr>
-          <td class="skills-td">DApps</td>
-          <td class="skills-td">⚒️⚒️⚒️⚒️⚒️</td>
-        </tr>
-      </table>
-    </div>
-    <br><br>
-    <p class="note">NOTE: These skils are related to web devlopment only.</p>
-    <br><br><br><br><br>
-  </div>
-  <div id="works" class="forth-div">
-    <br><br><br><br>
-    <h1>Works</h1>
-    <hr class="blue-hr">
-    <br><br>
-
-    <div class="works-div">
-      <div class="works">
-        <a href="#"><img class="works-img" src="images\loading.jpg" alt="">
-          <p class="works-name">Loading</p>
-        </a>
-      </div>
-
-      <div class="works">
-        <a href="#"><img class="works-img" src="images\loading.jpg" alt="">
-          <p class="works-name">Loading</p>
-        </a>
-      </div>
-
-      <div class="works">
-        <a href="#"><img class="works-img" src="images\loading.jpg" alt="">
-          <p class="works-name">Loading</p>
-        </a>
-      </div>
-
-    </div>
-    <br><br><br><br><br><br><br>
-  </div>
-  <div class="fifth-div">
-    <br><br><br><br>
-    <h1>Socials</h1>
-    <hr class="white-hr">
-    <br><br>
-    <div class="socials-div">
-      <div class="socials-row">
-        <div class="socials-png-div"><a href="https://twitter.com/aman_gupta_143/"> <img class="socials-png twitter" src="icons/twitter.png" alt=""></a></div>
-        <div class="socials-png-div"><a href="https://www.linkedin.com/in/amangupta143/"> <img class="socials-png linkedin" src="icons/linkedin.png" alt=""></a></div>
-        <div class="socials-png-div"><a href="https://github.com/amangupta143/"> <img class="socials-png github" src="icons/github.png" alt=""></a></div>
-      </div>
-      <div class="socials-row">
-        <div class="socials-png-div"><a href="https://www.instagram.com/amangupta.143/"> <img class="socials-png instagram" src="icons/instagram.png" alt=""></a></div>
-        <div class="socials-png-div"><a href="https://discord.gg/Qjc8FrPU"> <img class="socials-png discord" src="icons/discord.png" alt=""></a></div>
-      </div>
-    </div>
-    <br><br><br><br><br><br><br>
-  </div>
-  <div id="contact" class="sixth-div">
-    <br><br><br><br>
-    <h1>Contact Me</h1>
-    <hr class="blue-hr">
-    <br><br>
-    <div class="contact-form-div">
-      <form class="" action="mailto:luckynumber26c@gmail.com" method="post" enctype="text/plain">
-        <div>
-          <div class="contact-form"><label for="name">Name<span>*</span> :</label></div>
-          <div class="contact-form"><input type="text" name="Name" id="name" placeholder="Your name" required></div>
+    <div class="announcement-banner">
+        <div class="announcement-text">
+            <span class="announcement-icon">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <line x1="12" y1="16" x2="12" y2="12"></line>
+                    <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                </svg>
+            </span>
+            Full portfolio site launching soon — stay tuned
         </div>
-        <div>
-          <div class="contact-form"><label for="email">Email<span>*</span> :</label></div>
-          <div class="contact-form"><input type="email" name="Email" id="email" placeholder="Your email" required></div>
-        </div>
-        <div>
-          <div class="contact-form"><label for="number">Contact number :</label></div>
-          <div class="contact-form"><input type="tel" name="Contact Number" id="number" pattern="[0-9]{10}" placeholder="Contact number"></div>
-        </div>
-        <div>
-          <div class="contact-form"><label for="textarea">Message<span>*</span> :</label></div>
-          <div class="contact-form"><textarea name="Message" id="textarea" rows="6" cols="25" placeholder="Your message here.." required></textarea></div>
-        </div>
-        <div class="submit-div">
-          <div class="contact-form"><input type="submit" name="" value="Send"></div>
-          <div class="contact-form"><input type="reset" name="" value="Reset"></div>
-        </div>
-      </form>
     </div>
-    <br><br><br><br>
-    <p class="copyright">Copyright © 2022 Aman Gupta.</p>
-    <br><br><br>
-  </div>
-  <div class="top-margin">
-    <table class="asw">
-      <tr>
-        <td class="about-btn"><a href="#about">About</a></td>
-        <td class="skills-btn"><a href="#skills">Skills</a></td>
-        <td class="works-btn"><a href="#works">Works</a></td>
-        <td class="contact-btn"><a href="#contact">Contact</a></td>
-      </tr>
-    </table>
-    <a href="#home"><img class="home-btn" src="images/home.png" alt=""></a>
-  </div>
-  <div class="bottom-margin">
-  </div>
-
+    <section id="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-name">Aman Gupta</h1>
+                    <h2 class="hero-title">Software Developer & ML Engineer</h2>
+                    <p class="hero-subtitle">Crafting intelligent solutions to complex problems with a passion for innovation and elegant code.</p>
+                    <a href="https://drive.google.com/file/d/1w6EG9Yrbs1V2d521ANwp7TFMZZ3nPyqS/view?usp=sharing" class="cta-button" target="_blank" download>Download Resume</a>
+                    <div class="social-links">
+                        <a href="https://github.com/amangupta143" class="social-link" target="_blank">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334 -5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                            </svg>
+                            <span>GitHub</span>
+                        </a>
+                        <a href="https://linkedin.com/in/amangupta143" class="social-link" target="_blank">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                            </svg>
+                            <span>LinkedIn</span>
+                        </a>
+                        <a href="https://instagram.com/amangupta.143" class="social-link" target="_blank">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                            </svg>
+                            <span>Instagram</span>
+                        </a>
+                    </div>
+                </div>
+                <img src="https://github.com/user-attachments/assets/59f1f4d5-001d-4845-9e25-d692f9e8be2e" alt="Aman Gupta" class="profile-image">
+            </div>
+        </div>
+    </section>
 </body>
-
 </html>
