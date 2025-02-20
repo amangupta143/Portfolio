@@ -1,0 +1,72 @@
+/* Core variables */
+:root {
+    --bubble-diameter: 2.5rem;
+    --bubble-radius: calc(var(--bubble-diameter) / 2);
+    --icon-highlight: #ffffff;
+    --animation-timing: cubic-bezier(0.25, 0.1, 0.25, 1);
+    --animation-duration: 1.2s; /* Adjusted animation duration */
+  }
+  
+  /* Base styling for social links */
+  .social-link {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.4s var(--animation-timing); /* Adjusted transition duration */
+    cursor: pointer;
+  }
+  
+  /* SVG specific styling */
+  .social-link svg {
+    position: relative;
+    z-index: 2;
+    transition: all 0.4s var(--animation-timing); /* Adjusted transition duration */
+  }
+  
+  /* Animation elements */
+  .social-link::before {
+    content: '';
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    left: 50%;
+    border-radius: 50%;
+    opacity: 0; 
+    transition: all 0.4s var(--animation-timing); /* Adjusted transition duration */
+    box-sizing: border-box;
+    margin: calc(-1 * var(--bubble-radius));
+    border: solid var(--bubble-radius) var(--icon-highlight);
+    width: var(--bubble-diameter);
+    height: var(--bubble-diameter);
+    transform: scale(0);
+  }
+  
+  /* Hover animations */
+  .social-link:hover svg {
+    color: var(--icon-highlight);
+    transform: scale(1.1);
+  }
+  
+  .social-link:hover::before {
+    animation: bubble var(--animation-duration) var(--animation-timing) forwards;
+  }
+  
+  /* Keyframe animations */
+  @keyframes bubble {
+    0% {
+      transform: scale(0);
+      opacity: 0;
+    }
+    25% {
+      transform: scale(1);
+      border-width: calc(var(--bubble-radius) / 2);
+      opacity: 0.6; /* Added opacity */
+    }
+    50%, 100% {
+      transform: scale(1.2);
+      border-width: 0;
+      opacity: 0;
+    }
+  }
+  

@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charSet="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <title>The Art of Feature Engineering: Transforming Raw Data into Model-Ready Intelligence</title>
+
+    <meta name="description" content="Master the essential skill of feature engineering and learn how to transform raw data into powerful predictive features for machine learning models.">
+    <meta name="keywords" content="feature engineering, machine learning, data science, data transformation, model preparation">
+    <meta name="author" content="Your Name">
+    <meta property="og:title" content="The Art of Feature Engineering: From Raw Data to Intelligence">
+    <meta property="og:description" content="A comprehensive guide to mastering feature engineering for machine learning">
+    <meta property="og:image" content="../images/blog/04.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
+    <meta name="twitter:title" content="Aver - TailwindCSS Personal Portfolio Template" />
+    <meta name="twitter:image" content="../images/ogimage.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:description" content="TailwindCSS Personal Portfolio Template" />
+    
+    <link rel="shortcut icon" href="../images/favicon.png" type="image/x-icon" />
+    
+    <link rel="stylesheet" href="./plugins/aos/aos.css">
+    <link rel="stylesheet" href="../styles/output.css">
+    <link rel="stylesheet" href="../styles/hover.css">
+  </head>
+
+  <body>
+    <!-- start of header -->
+    <header class="fixed top-0 z-[9000] w-full header [&.invisible]:-translate-y-full">
+      <div class="container">
+        <div class="flex justify-between py-6 items-center relative">
+          <!-- logo -->
+          <div class="hideOnScroll lg:[&.scrolled]:opacity-0 lg:[&.scrolled]:-translate-x-8 w-1/4 transition-all duration-300">
+            <a class="inline-block align-middle" href="../index.html">
+              <img alt="Aver" width="80" height="29" src="../images/logo.svg" />
+            </a>
+          </div>
+
+          <!-- navbar -->
+          <nav class="navbar">
+            <span class="indicator"></span>
+            <a href="../index.html">Home</a>
+            <a href="../about.html">About</a>
+            <a href="../project.html">Project</a>
+            <a class="active" href="../blog.html">Blog</a>
+            <a href="../contact.html">Contact</a>
+          </nav>
+          <div class="navOverlay"></div>
+
+          <!-- toggle mobile-nav -->
+          <button type="button" aria-label="Toggle Mobile Navigation" class="navToggler">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+              <path d="M4 8l16 0"></path>
+              <path d="M4 16l16 0"></path>
+            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+              <path d="M18 6l-12 12"></path>
+              <path d="M6 6l12 12"></path>
+            </svg>
+          </button>
+
+          <!-- social links -->
+          <div class="hideOnScroll lg:[&.scrolled]:opacity-0 lg:[&.scrolled]:translate-x-8 w-1/4 transition-all duration-300 text-right text-sm hidden lg:block">
+            <!-- <span class="block text-white/75 mb-1">Follow me on:</span> -->
+            <ul class="inline-flex gap-x-4 items-center">
+              <li class="inline-block hover:opacity-75 transition-op duration-300">
+                <a href="https://leetcode.com/amangupta_143" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LeetCode">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M13.483 0a1.374 1.374 0 0 0-.961.438L7.116 6.226l-3.854 4.126a5.266 5.266 0 0 0-1.209 2.104 5.35 5.35 0 0 0-.125.513 5.527 5.527 0 0 0 .062 2.362 5.83 5.83 0 0 0 .349 1.017 5.938 5.938 0 0 0 1.271 1.818l4.277 4.193.039.038c2.248 2.165 5.852 2.133 8.063-.074l2.396-2.392c.54-.54.54-1.414.003-1.955a1.378 1.378 0 0 0-1.951-.003l-2.396 2.392a3.021 3.021 0 0 1-4.205.038l-.02-.019-4.276-4.193c-.652-.64-.972-1.469-.948-2.263a2.68 2.68 0 0 1 .066-.523 2.545 2.545 0 0 1 .619-1.164L9.13 8.114c1.058-1.134 3.204-1.27 4.43-.278l3.501 2.831c.593.48 1.461.387 1.94-.207a1.384 1.384 0 0 0-.207-1.943l-3.5-2.831c-.8-.647-1.766-1.045-2.774-1.202l2.015-2.158A1.384 1.384 0 0 0 13.483 0zm-2.866 12.815a1.38 1.38 0 0 0-1.38 1.382 1.38 1.38 0 0 0 1.38 1.382H20.79a1.38 1.38 0 0 0 1.38-1.382 1.38 1.38 0 0 0-1.38-1.382z"/>
+                  </svg>
+                </a>
+              </li>
+              <!-- LinkedIn Icon -->
+              <li class="inline-block hover:opacity-75 transition-op duration-300">
+                <a href="https://www.linkedin.com/in/amangupta143" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19a.66.66 0 000 .14V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66z"></path>
+                  </svg>
+                </a>
+              </li>
+              <!-- GitHub Icon -->
+              <li class="inline-block hover:opacity-75 transition-op duration-300">
+                <a href="https://github.com/amangupta143" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="GitHub">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.17 6.839 9.49.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.464-1.11-1.464-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.699 1.026 1.591 1.026 2.682 0 3.841-2.337 4.687-4.565 4.935.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12c0-5.523-4.477-10-10-10z"></path>
+                  </svg>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </header>
+    <!-- end of header -->
+
+    <!-- start of main -->
+    <main class="bg-dark relative z-10 pt-[92px] lg:pt-[106px] min-h-[82vh] overflow-hidden">
+
+      <!-- ================= start of blog-details ================= -->
+      <section class="pt-24 pb-28">
+        <div class="container">
+          <div class="row justify-center">
+            <div class="lg:col-8 text-center banner mb-16" data-aos="fade-up-sm">
+              <div class="flex flex-wrap items-center justify-center mb-12 space-x-8">
+                <span class="inline-block text-sm rounded-full bg-[#efefef] px-3 py-1 capitalize text-black">Machine Learning</span>
+                <span class="opacity-75 text-sm">15 Jan / 2025</span>
+              </div>
+              <h1 class="text-4xl md:text-5xl mb-4 !leading-tight">The Art of Feature Engineering: Transforming Raw Data into Model-Ready Intelligence</h1>
+              <p class="max-w-xl mx-auto">Discover how to transform raw data into powerful predictive features that unlock the full potential of machine learning models</p>
+            </div>
+            <div class="lg:col-10 mx-auto" data-aos="fade-up-sm" data-aos-delay="100">
+              <div class="h-[460px] bg-black/20 overflow-hidden relative z-10 rounded-lg">
+                <img alt="The Role of a Developer in Creating Communities" loading="lazy" width="1020" height="460" class="w-auto h-[460px] object-cover object-center mx-auto z-10 rounded-lg" src="../images/blog/04.jpg" />
+                <img alt="The Role of a Developer in Creating Communities" width="100" height="100" class="w-full h-[500px] object-cover filter blur-sm absolute top-0 left-0 -z-10 scale-110 opacity-50" src="../images/blog/04.jpg" />
+              </div>
+            </div>
+            <div class="xl:col-9 lg:col-10 mx-auto" data-aos="fade-in">
+              <div class="sm:flex flex-wrap sm:flex-nowrap w-full pt-20">
+                <div class="sm:order-2 sm:pl-12 xl:pl-24">
+                  <article class="content content-light">
+                    <p>
+                                Imagine you're a chef preparing ingredients for a complex dish. Just as raw vegetables need to be cleaned, cut, and seasoned before cooking, raw data needs careful preparation before it can be used effectively in machine learning models. This process, known as feature engineering, is often the difference between a model that merely works and one that excels. Let's explore this fascinating intersection of art and science, where domain knowledge meets data transformation to create something truly powerful.
+                            </p>
+
+                            <h2>Understanding the Essence of Features</h2>
+                            <p>
+                                At its core, a feature is any measurable property of your data. Think of features as the language through which we communicate with our machine learning models. Just as we might describe a person through characteristics like height, age, and occupation, we describe our data through carefully crafted features. The art lies in deciding which characteristics will be most meaningful for our specific problem.
+                            </p>
+
+                            <blockquote>
+                                <p>"Feature engineering is the art of creating new features that make machine learning algorithms work better. It's the difference between good and great in machine learning." <cite>— Pedro Domingos</cite></p>
+                            </blockquote>
+
+                            <h2>The Foundation: Understanding Your Data</h2>
+                            <p>
+                                Before we can transform our data, we must understand it deeply. This means exploring its structure, distribution, and relationships. Like a doctor examining a patient, we need to look at our data from multiple angles: its statistical properties, its quirks, and its potential problems. This understanding forms the foundation for all our feature engineering decisions.
+                            </p>
+
+                            <h2>Basic Transformation Techniques</h2>
+                            <p>
+                                The journey from raw data to useful features often begins with basic transformations. Scaling and normalization ensure our features play well together, like adjusting the volumes of different instruments in an orchestra. Encoding categorical variables transforms text labels into numbers our models can understand. These fundamental operations are like the basic knife skills of a chef – essential techniques that enable more sophisticated work.
+                            </p>
+
+                            <h2>The Art of Feature Creation</h2>
+                            <p>
+                                Creating new features is where domain knowledge truly shines. Sometimes the most powerful features aren't present in your raw data but must be derived from it. For example, in a retail dataset, the raw data might include purchase dates and amounts, but the truly predictive features might be things like average spending per month or time between purchases. This is where feature engineering becomes an art form, combining domain expertise with creative thinking.
+                            </p>
+
+                            <h2>Time-Based Feature Engineering</h2>
+                            <p>
+                                Working with time-series data presents unique challenges and opportunities. Like a historian piecing together patterns from past events, we need to create features that capture temporal relationships. This might involve calculating rolling averages, identifying seasonal patterns, or marking special events. The key is understanding how time influences your problem and encoding that understanding into your features.
+                            </p>
+
+                            <h2>Text and Categorical Features</h2>
+                            <p>
+                                Text data is like an uncut diamond – valuable but requiring significant processing to reveal its true worth. Techniques like one-hot encoding, frequency encoding, and embedding transform categorical and text data into numerical features our models can understand. More advanced techniques like TF-IDF and word embeddings capture subtle relationships between words and concepts, enabling our models to understand context and meaning.
+                            </p>
+
+                            <h2>Handling Missing Data</h2>
+                            <p>
+                                Missing data is like holes in a story – we need to decide how to fill them meaningfully. Sometimes the very fact that data is missing can be informative. Rather than simply filling gaps with averages, thoughtful feature engineering might create new features that capture patterns in the missingness itself, turning an apparent weakness into a source of insight.
+                            </p>
+
+                            <h2>Automated Feature Engineering</h2>
+                            <p>
+                                While much of feature engineering requires human insight, automated tools can augment our capabilities. Like a master chef using modern kitchen equipment, we can leverage automation to handle routine tasks while focusing our creativity on higher-level decisions. Tools like feature selection algorithms help us identify which features are most valuable, while automated feature generation tools can suggest transformations we might not have considered.
+                            </p>
+
+                            <h2>Feature Engineering in Practice</h2>
+                            <p>
+                                Real-world feature engineering often requires balancing multiple considerations. We must weigh the potential benefit of each feature against its computational cost and complexity. Like an architect designing a building, we need to consider both aesthetics (model performance) and practicality (computational efficiency, maintenance costs). This means sometimes choosing simpler features that are more robust and easier to maintain over complex ones that might offer marginal improvements.
+                            </p>
+
+                            <h2>Common Pitfalls and How to Avoid Them</h2>
+                            <p>
+                                Feature engineering has its share of traps for the unwary. Data leakage, where we accidentally include information that wouldn't be available in practice, is like a magician accidentally revealing their secrets. Over-engineering features can lead to complexity without benefit, like over-seasoning a dish. Understanding these pitfalls and how to avoid them is crucial for effective feature engineering.
+                            </p>
+
+                            <h2>The Impact of Domain Knowledge</h2>
+                            <p>
+                                Domain expertise is the secret ingredient in effective feature engineering. Understanding the business context, physical constraints, or underlying processes in your domain helps you create features that capture meaningful relationships. This knowledge helps you distinguish between correlation and causation, and create features that will generalize well to new data.
+                            </p>
+
+                            <h2>Future Trends in Feature Engineering</h2>
+                            <p>
+                                The field of feature engineering continues to evolve. Deep learning models are increasingly capable of learning useful features automatically, but this doesn't diminish the importance of thoughtful feature engineering. Instead, it shifts our focus toward higher-level feature design and the integration of domain knowledge. Understanding these trends helps us prepare for the future while making the most of current techniques.
+                            </p>
+
+                            <h2>Building Your Feature Engineering Skills</h2>
+                            <p>
+                                Mastering feature engineering is a journey that combines technical skills with creative thinking. Start with simple projects where you can experiment with different techniques and immediately see their impact. As you gain confidence, tackle more complex problems. Remember that every expert started as a beginner, and every sophisticated feature engineering solution began with a simple insight.
+                            </p>
+
+                            <p>
+                                The art of feature engineering is both challenging and rewarding. It requires technical skill, domain knowledge, creativity, and careful attention to detail. But when done well, it can transform raw data into powerful insights that drive better decisions and outcomes. As you continue your journey in machine learning, remember that the features you create are often as important as the models you choose.
+                            </p>
+                  </article>
+                </div>
+                <!-- <div class="sm:order-1 w-full sm:w-auto">
+                  <div class="sticky top-8">
+                    <ul class="text-white mt-10 sm:mt-2 [&>li]:bg-light/10 [&>li]:rounded-lg [&>li]:leading-none [&>li]:mb-3 [&>li:hover]:bg-light/20 flex flex-wrap space-x-5 sm:space-x-0 sm:inline-block items-center justify-center border-t border-b sm:border-none border-light/10 pt-3 sm:pt-0">
+                      <li class="transition-all duration-300">
+                        <a href="https://twitter.com/intent/tweet?text=The Role of a Developer in Creating Communities&url=https://aver-nextjs.vercel.app/blog/the-role-of-a-developer-in-creating-communities" target="_blank" rel="noopener noreferrer" class="h-11 w-11 flex items-center justify-center">
+                          <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512" class="text-white" fill="currentColor">
+                            <path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"></path>
+                          </svg>
+                        </a>
+                      </li>
+                      <li class="transition-all duration-300">
+                        <a href="https://www.facebook.com/sharer.php?u=https://aver-nextjs.vercel.app/blog/the-role-of-a-developer-in-creating-communities&quote=The Role of a Developer in Creating Communities" target="_blank" rel="noopener noreferrer" class="h-11 w-11 flex items-center justify-center">
+                          <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512" class="text-white" fill="currentColor">
+                            <path d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z"></path>
+                          </svg>
+                        </a>
+                      </li>
+                      <li class="transition-all duration-300">
+                        <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://aver-nextjs.vercel.app/blog/the-role-of-a-developer-in-creating-communities" target="_blank" rel="noopener noreferrer" class="h-11 w-11 flex items-center justify-center">
+                          <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" class="text-white" fill="currentColor">
+                            <path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"></path>
+                          </svg>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div> -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- ================= end of blog-details ================= -->
+
+      <!-- ================= start of next/prev blog post ================= -->
+      <section class="py-28 bg-white text-dark rounded-b-2xl overflow-hidden">
+        <div class="container">
+          <div class="mb-20">
+            <h2 class="text-4xl lg:text-5xl font-secondary font-medium -mt-[6px] text-center">Keep Reading</h2>
+          </div>
+          <div class="row gy-2 sm:gy-4 justify-center">
+            <div class="xl:col-6 lg:col-8 md:col-10">
+              <div class="relative group flex items-center z-10">
+                <div class="shrink-0 relative overflow-hidden rounded sm:rounded-lg h-[4.5rem] w-[4.5rem] sm:h-28 sm:w-28 self-start pointer-events-none">
+                  <img alt="You have no idea how much better you can feel!" loading="lazy" width="300" height="300" class="duration-500 group-hover:scale-110 group-hover:-rotate-1 object-cover w-full h-full rounded sm:rounded-lg group-hover:brightness-75 bg-light/20" src="../images/blog/03.jpg" />
+                </div>
+                <div class="grow pl-4 sm:pl-7 transition-all duration-500 group-hover:opacity-60">
+                  <span class="absolute right-0 sm:-right-1/4 top-0 leading-[0.65] text-[25vh] -z-10 opacity-[0.015] select-none">PREV</span>
+                  <div class="flex flex-wrap items-center mb-4 space-x-5">
+                    <span class="inline-block text-sm rounded-full bg-[#efefef] px-3 py-1 capitalize">Artificial Intelligence</span>
+                    <span class="opacity-75 text-sm">05 Jan / 2025</span>
+                  </div>
+                  <h3 class="text-lg sm:text-2xl leading-snug">
+                    <a class="stretched-link" href="../blogs/The Neural Network Journey.html">The Neural Network Journey: Understanding Deep Learning from Neurons to Networks</a>
+                  </h3>
+                </div>
+              </div>
+            </div>
+            <div class="lg:col-12"></div>
+            <div class="xl:col-6 lg:col-8 md:col-10">
+              <div class="relative group flex items-center z-10">
+                <div class="grow pr-4 sm:pr-7 transition-all duration-500 group-hover:opacity-60">
+                  <span class="absolute left-0 sm:-left-1/4 top-0 leading-[0.65] text-[25vh] -z-10 opacity-[0.015] select-none">NEXT</span>
+                  <div class="flex flex-wrap items-center justify-end mb-4 space-x-5">
+                    <span class="opacity-75 text-sm">20 Jan / 2025</span>
+                    <span class="inline-block text-sm rounded-full bg-[#efefef] px-3 py-1 capitalize">Artificial Intelligence</span>
+                  </div>
+                  <h3 class="text-lg sm:text-2xl leading-snug text-right">
+                    <a class="stretched-link" href="../blogs/Ethical AI Development.html">Ethical AI Development: Building Responsible Artificial Intelligence Systems</a>
+                  </h3>
+                </div>
+                <div class="shrink-0 relative overflow-hidden rounded sm:rounded-lg h-[4.5rem] w-[4.5rem] sm:h-28 sm:w-28 self-start pointer-events-none">
+                  <img alt="Ways to improve usability and accessibility" loading="lazy" width="300" height="300" class="duration-500 group-hover:scale-110 group-hover:-rotate-1 object-cover w-full h-full rounded sm:rounded-lg group-hover:brightness-75 bg-light/20" src="../images/blog/05.jpg" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- ================= end of next/prev blog post ================= -->
+
+    </main>
+    <!-- end of main -->
+
+    <!-- ================= start of footer ================= -->
+    <footer class="pt-28 pb-20 sticky bottom-0 z-[1]">
+      <div class="mb-16 overflow-hidden">
+        <a class="footer-cta block text-4xl md:text-5xl font-secondary font-medium mb-8" href="contact.html">
+          <!-- Scrolling Line 1 -->
+          <div class="animated-line animated-line-one mb-5">
+            <div class="line-block">
+              <span class="mr-20 md:mr-24">
+                <span class="cta-text">Let’s make something</span>
+                <img alt="arrow-right" loading="lazy" width="39" height="31" class="inline-block ml-10 md:ml-16 cta-icon" src="../images/arrow-right.svg" />
+              </span>
+              <span class="mr-20 md:mr-24">
+                <span class="cta-text">Let’s make something</span>
+                <img alt="arrow-right" loading="lazy" width="39" height="31" class="inline-block ml-10 md:ml-16 cta-icon" src="../images/arrow-right.svg" />
+              </span>
+              <span class="mr-20 md:mr-24">
+                <span class="cta-text">Let’s make something</span>
+                <img alt="arrow-right" loading="lazy" width="39" height="31" class="inline-block ml-10 md:ml-16 cta-icon" src="../images/arrow-right.svg" />
+              </span>
+              <span class="mr-20 md:mr-24">
+                <span class="cta-text">Let’s make something</span>
+                <img alt="arrow-right" loading="lazy" width="39" height="31" class="inline-block ml-10 md:ml-16 cta-icon" src="../images/arrow-right.svg" />
+              </span>
+              <span class="mr-20 md:mr-24">
+                <span class="cta-text">Let’s make something</span>
+                <img alt="arrow-right" loading="lazy" width="39" height="31" class="inline-block ml-10 md:ml-16 cta-icon" src="../images/arrow-right.svg" />
+              </span>
+            </div>
+            <div class="line-block-copy">
+              <span class="mr-20 md:mr-24">
+                <span class="cta-text">Let’s make something</span>
+                <img alt="arrow-right" loading="lazy" width="39" height="31" class="inline-block ml-10 md:ml-16 cta-icon" src="../images/arrow-right.svg" />
+              </span>
+              <span class="mr-20 md:mr-24">
+                <span class="cta-text">Let’s make something</span>
+                <img alt="arrow-right" loading="lazy" width="39" height="31" class="inline-block ml-10 md:ml-16 cta-icon" src="../images/arrow-right.svg" />
+              </span>
+              <span class="mr-20 md:mr-24">
+                <span class="cta-text">Let’s make something</span>
+                <img alt="arrow-right" loading="lazy" width="39" height="31" class="inline-block ml-10 md:ml-16 cta-icon" src="../images/arrow-right.svg" />
+              </span>
+              <span class="mr-20 md:mr-24">
+                <span class="cta-text">Let’s make something</span>
+                <img alt="arrow-right" loading="lazy" width="39" height="31" class="inline-block ml-10 md:ml-16 cta-icon" src="../images/arrow-right.svg" />
+              </span>
+              <span class="mr-20 md:mr-24">
+                <span class="cta-text">Let’s make something</span>
+                <img alt="arrow-right" loading="lazy" width="39" height="31" class="inline-block ml-10 md:ml-16 cta-icon" src="../images/arrow-right.svg" />
+              </span>
+            </div>
+          </div>
+          <!-- Scrolling Line 2 -->
+          <div class="animated-line animated-line-two">
+            <div class="line-block">
+              <span class="mr-20 md:mr-24">
+                <span class="cta-text">Let’s make something</span>
+                <img alt="arrow-right" loading="lazy" width="39" height="31" class="inline-block ml-10 md:ml-16 cta-icon" src="../images/arrow-right.svg" />
+              </span>
+              <span class="mr-20 md:mr-24">
+                <span class="cta-text">Let’s make something</span>
+                <img alt="arrow-right" loading="lazy" width="39" height="31" class="inline-block ml-10 md:ml-16 cta-icon" src="../images/arrow-right.svg" />
+              </span>
+              <span class="mr-20 md:mr-24">
+                <span class="cta-text">Let’s make something</span>
+                <img alt="arrow-right" loading="lazy" width="39" height="31" class="inline-block ml-10 md:ml-16 cta-icon" src="../images/arrow-right.svg" />
+              </span>
+              <span class="mr-20 md:mr-24">
+                <span class="cta-text">Let’s make something</span>
+                <img alt="arrow-right" loading="lazy" width="39" height="31" class="inline-block ml-10 md:ml-16 cta-icon" src="../images/arrow-right.svg" />
+              </span>
+              <span class="mr-20 md:mr-24">
+                <span class="cta-text">Let’s make something</span>
+                <img alt="arrow-right" loading="lazy" width="39" height="31" class="inline-block ml-10 md:ml-16 cta-icon" src="../images/arrow-right.svg" />
+              </span>
+            </div>
+            <div class="line-block-copy">
+              <span class="mr-20 md:mr-24">
+                <span class="cta-text">Let’s make something</span>
+                <img alt="arrow-right" loading="lazy" width="39" height="31" class="inline-block ml-10 md:ml-16 cta-icon" src="../images/arrow-right.svg" />
+              </span>
+              <span class="mr-20 md:mr-24">
+                <span class="cta-text">Let’s make something</span>
+                <img alt="arrow-right" loading="lazy" width="39" height="31" class="inline-block ml-10 md:ml-16 cta-icon" src="../images/arrow-right.svg" />
+              </span>
+              <span class="mr-20 md:mr-24">
+                <span class="cta-text">Let’s make something</span>
+                <img alt="arrow-right" loading="lazy" width="39" height="31" class="inline-block ml-10 md:ml-16 cta-icon" src="../images/arrow-right.svg" />
+              </span>
+              <span class="mr-20 md:mr-24">
+                <span class="cta-text">Let’s make something</span>
+                <img alt="arrow-right" loading="lazy" width="39" height="31" class="inline-block ml-10 md:ml-16 cta-icon" src="../images/arrow-right.svg" />
+              </span>
+              <span class="mr-20 md:mr-24">
+                <span class="cta-text">Let’s make something</span>
+                <img alt="arrow-right" loading="lazy" width="39" height="31" class="inline-block ml-10 md:ml-16 cta-icon" src="../images/arrow-right.svg" />
+              </span>
+            </div>
+          </div>
+        </a>
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="md:col-6 text-center md:text-left mb-4">
+            <!-- Social Links -->
+            <ul
+              class="inline-flex flex-wrap justify-center md:justify-start gap-x-6"
+            >
+              <li
+                class="inline-block hover:opacity-75 transition-op duration-300"
+              >
+                <a
+                  href="https://instagram.com/amangupta.143"
+                  class="link"
+                  target="_blank"
+                  >Instagram</a
+                >
+              </li>
+              <li
+                class="inline-block hover:opacity-75 transition-op duration-300"
+              >
+                <a
+                  href="https://x.com/aman_gupta_143"
+                  class="link"
+                  target="_blank"
+                  >Twitter</a
+                >
+              </li>
+              <li
+                class="inline-block hover:opacity-75 transition-op duration-300"
+              >
+                <a
+                  href="https://linkedin.com/in/amangupta143"
+                  class="link"
+                  target="_blank"
+                  >Linkedin</a
+                >
+              </li>
+              <li
+                class="inline-block hover:opacity-75 transition-op duration-300"
+              >
+                <a
+                  href="https://github.com/amangupta143"
+                  class="link"
+                  target="_blank"
+                  >Github</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div class="md:col-6 text-center md:text-right mb-4">
+            <!-- Footer Menu -->
+            <ul
+              class="inline-flex flex-wrap justify-center md:justify-end gap-x-6"
+            >
+              <li
+                class="inline-block hover:opacity-75 transition-op duration-300"
+              >
+                <a
+                  href="https://drive.google.com/file/d/1w6EG9Yrbs1V2d521ANwp7TFMZZ3nPyqS/view"
+                  class="link"
+                  target="_blank"
+                  >Download Resume</a
+                >
+              </li>
+            </ul>
+          </div>
+          <!-- Copyright -->
+          <div class="md:col-6 text-center md:text-left mb-4 md:mb-0">
+            <p class="text-white/75">© 2025 Aman. All rights reserved.</p>
+          </div>
+          <!-- Developer Info -->
+          <div class="md:col-6 text-center md:text-right">
+            <p class="text-white/75">😊 Thank you for visiting!</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- ================= end of footer ================= -->
+
+    <!-- start of script -->
+    <script src="../plugins/aos/aos.js"></script>
+    <script src="../scripts/main.js"></script>
+  </body>
+</html>

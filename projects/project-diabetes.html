@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charSet="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <title>Diabetes Prediction Project - Aman Gupta</title>
+    
+    <meta name="author" content="Aman Gupta" />
+    <meta name="description" content="Machine Learning Project for Diabetes Prediction using KNN Algorithm" />
+    <meta property="og:title" content="Diabetes Prediction Project - Aman Gupta Portfolio" />
+    <meta property="og:description" content="Machine Learning Project for Diabetes Prediction using KNN Algorithm" />
+    
+    <link rel="shortcut icon" href="../images/favicon.png" type="image/x-icon" />
+    <link rel="stylesheet" href="../plugins/aos/aos.css">
+    <link rel="stylesheet" href="../styles/output.css">
+  </head>
+
+  <body>
+    <header class="fixed top-0 z-[9000] w-full header [&.invisible]:-translate-y-full">
+        <div class="container">
+          <div class="flex justify-between py-6 items-center relative">
+            <!-- logo -->
+            <div class="hideOnScroll lg:[&.scrolled]:opacity-0 lg:[&.scrolled]:-translate-x-8 w-1/4 transition-all duration-300">
+              <a class="inline-block align-middle" href="../index.html">
+                <img alt="Aver" width="80" height="29" src="../images/logo.svg" />
+              </a>
+            </div>
+  
+            <!-- navbar -->
+            <nav class="navbar">
+              <span class="indicator"></span>
+              <a href="../index.html">Home</a>
+              <a href="../about.html">About</a>
+              <a class="active" href="../project.html">Project</a>
+              <a href="../blog.html">Blog</a>
+              <a href="../contact.html">Contact</a>
+            </nav>
+            <div class="navOverlay"></div>
+  
+            <!-- toggle mobile-nav -->
+            <button type="button" aria-label="Toggle Mobile Navigation" class="navToggler">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                <path d="M4 8l16 0"></path>
+                <path d="M4 16l16 0"></path>
+              </svg>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                <path d="M18 6l-12 12"></path>
+                <path d="M6 6l12 12"></path>
+              </svg>
+            </button>
+  
+            <!-- social links -->
+            <div class="hideOnScroll lg:[&.scrolled]:opacity-0 lg:[&.scrolled]:translate-x-8 w-1/4 transition-all duration-300 text-right text-sm hidden lg:block">
+              <span class="block text-white/75 mb-1">Social Links:</span>
+              <ul class="inline-flex gap-x-4">
+                <li class="inline-block hover:opacity-75 transition-op duration-300">
+                  <a href="https://facebook.com/" class="link">FB</a>
+                </li>
+                <li class="inline-block hover:opacity-75 transition-op duration-300">
+                  <a href="https://twitter.com/" class="link">TW</a>
+                </li>
+                <li class="inline-block hover:opacity-75 transition-op duration-300">
+                  <a href="https://www.linkedin.com/in/amangupta143/" class="link">IN</a>
+                </li>
+                <li class="inline-block hover:opacity-75 transition-op duration-300">
+                  <a href="https://github.com/amangupta143" class="link">GITHUB</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </header>
+
+    <main class="bg-dark relative z-10 pt-[92px] lg:pt-[106px] min-h-[82vh] overflow-hidden">
+      <section class="pt-24 pb-28">
+        <div class="container">
+          <div class="row justify-center banner">
+            <div class="md:col-7 lg:col-6" data-aos="fade-up-sm">
+              <!-- project tag -->
+              <span class="inline-block text-sm rounded-full bg-[#efefef] px-3 py-1 capitalize text-black mb-6">Machine Learning</span>
+              <!-- project title -->
+              <h1 class="text-4xl md:text-5xl mb-4 !leading-tight">Diabetes Prediction System</h1>
+              <!-- project info -->
+              <p>A web application that predicts diabetes risk using machine learning</p>
+              
+              <!-- project details info -->
+              <ul class="row text-white mt-4">
+                <li class="col-6 mt-8">
+                  <p class="text-white/50 text-xs uppercase tracking-wider mb-2">Technologies</p>
+                  <div class="[&_a]:underline [&_a]:hover:no-underline [&_li]:mt-1">
+                    <ul>
+                      <li>Python</li>
+                      <li>Streamlit</li>
+                      <li>scikit-learn</li>
+                      <li>NumPy</li>
+                    </ul>
+                  </div>
+                </li>
+                <li class="col-6 mt-8">
+                  <p class="text-white/50 text-xs uppercase tracking-wider mb-2">Algorithm</p>
+                  <div class="[&_a]:underline [&_a]:hover:no-underline [&_li]:mt-1">
+                    <p>K-Nearest Neighbors (KNN)</p>
+                  </div>
+                </li>
+                <li class="col-6 mt-8">
+                  <p class="text-white/50 text-xs uppercase tracking-wider mb-2">Features</p>
+                  <div class="[&_a]:underline [&_a]:hover:no-underline [&_li]:mt-1">
+                    <ul>
+                      <li>Real-time prediction</li>
+                      <li>User-friendly interface</li>
+                      <li>Medical parameters analysis</li>
+                    </ul>
+                  </div>
+                </li>
+                <li class="col-6 mt-8">
+                  <p class="text-white/50 text-xs uppercase tracking-wider mb-2">Source Code</p>
+                  <div class="[&_a]:underline [&_a]:hover:no-underline [&_li]:mt-1">
+                    <p>
+                      <a href="https://github.com/amangupta143/Diabetes-Prediction-KNN">View on GitHub</a>
+                    </p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+
+            <div class="md:col-5 lg:col-4 mt-12 md:mt-0" data-aos="fade-up-sm" data-aos-delay="100">
+              <!-- project image -->
+              <img alt="Diabetes Prediction System" loading="lazy" width="500" height="500" class="aspect-square object-cover object-center rounded-lg bg-light/20 w-full md:w-[500px]" src="../images/project/02.jpg" />
+            </div>
+
+            <!-- divider -->
+            <div class="lg:col-10">
+              <hr class="opacity-5 mt-28 mb-24" />
+            </div>
+          </div>
+
+          <!-- project content -->
+          <div class="row justify-center" data-aos="fade-in">
+            <div class="lg:col-10">
+              <article class="content content-light [&_img]:w-full">
+                <h2>Project Overview</h2>
+                <p>The Diabetes Prediction System is a web-based application that uses machine learning to predict whether a person is likely to have diabetes based on various medical parameters. The system utilizes the K-Nearest Neighbors (KNN) algorithm to analyze patient data and provide instant predictions.</p>
+
+                <p>
+                    <img src="../images/project/01-00.jpg" alt="Shuvashini 04." />
+                </p>
+
+                <h2>Technical Implementation</h2>
+                <p>The project is built using Python and leverages several key technologies:</p>
+                <p>The core prediction functionality is implemented using scikit-learn's KNN classifier. The model takes eight key medical parameters as input: Pregnancies, Glucose Level, Blood Pressure, Skin Thickness, Insulin Level, BMI, Diabetes Pedigree Function, and Age. These parameters are processed through our trained model to generate predictions.</p>
+                <p>The web interface is built using Streamlit, providing an intuitive way for users to input their medical data and receive instant predictions. The application handles data validation and preprocessing to ensure accurate results.</p>
+
+                <h2>Features and Functionality</h2>
+                <p>The system offers several key features:</p>
+                <p>- Real-time prediction capabilities using a pre-trained machine learning model</p>
+                <p>- User-friendly interface for inputting medical parameters</p>
+                <p>- Instant feedback on diabetes risk assessment</p>
+                <p>- Robust error handling and input validation</p>
+                <p>- Easy deployment and scalability options</p>
+
+                <h2>Development Process</h2>
+                <p>The development process involved several key stages:</p>
+                <p>1. Data Collection and Preprocessing: Utilizing the diabetes dataset to train our model</p>
+                <p>2. Model Development: Implementation and training of the KNN classifier</p>
+                <p>3. Web Application Development: Creating an intuitive interface using Streamlit</p>
+                <p>4. Testing and Validation: Ensuring accurate predictions and robust performance</p>
+                <p>5. Deployment: Making the application accessible via web interface</p>
+
+                <h2>Results and Impact</h2>
+                <p>The Diabetes Prediction System demonstrates the practical application of machine learning in healthcare diagnostics. It provides a quick and efficient way for healthcare professionals to perform initial diabetes risk assessments. The system maintains high accuracy while being user-friendly and accessible.</p>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- start of next-project -->
+      <section class="py-28 bg-white text-dark rounded-b-2xl overflow-hidden">
+        <div class="container">
+          <div class="mb-16">
+            <!-- next-project -->
+            <h2 class="text-4xl lg:text-5xl font-secondary font-medium -mt-[6px] text-center">Next Project</h2>
+          </div>
+          <div class="row justify-center">
+            <div class="lg:col-6">
+              <div data-aos="true" class="rounded-lg overflow-hidden relative group h-full">
+                <span class="absolute h-full group-[.aos-animate]:h-0 w-full z-30 duration-700 left-0 bottom-0" style="background-color:#55487D;transition-delay:0ms"></span>
+                
+                <!-- next-project image -->
+                <img alt="Curoloy" loading="lazy" width="620" height="420" class="scale-150 group-[.aos-animate]:scale-100 duration-700 group-hover:!scale-125 object-cover w-full bg-light/20 has-twoColumns h-[376px]" style="height:376px" src="../images/project/07.png" />
+                <div class="absolute inset-0 z-20 flex justify-center flex-col p-8">
+                  <span class="absolute h-full w-full duration-300 left-0 bottom-0 opacity-0 bg-overlay group-hover:opacity-100 -z-10 pointer-events-none"></span>
+                  <div class="flex items-center justify-between opacity-0 -mt-1 group-hover:opacity-100 group-hover:mt-0 duration-300 group-hover:delay-300">
+                    <!-- next-project tag -->
+                    <span class="uppercase text-white bg-white/25 text-sm font-light tracking-wider px-3 py-1 rounded-full backdrop-blur-lg">Regression</span>
+                    
+                    <!-- next-project link -->
+                    <a class="stretched-link" href="../projects/BigMart-Sales-Prediction.html">
+                      <img alt="arrow" loading="lazy" width="25" height="22" class="inline-block rotate-[135deg]" src="../images/arrow-right.svg" />
+                    </a>
+                  </div>
+                  <div class="text-center mt-auto">
+                    <h3 class="text-4xl font-secondary font-semibold text-white mb-2 relative overflow-hidden">
+                      <!-- next-project title -->
+                      <span class="block translate-y-full group-hover:translate-y-0 duration-300">BigMart Sales Prediction</span>
+                    </h3>
+                    <!-- next-project category -->
+                    <p class="text-white font-light relative overflow-hidden">
+                      <span class="block translate-y-full group-hover:translate-y-0 duration-300 group-hover:delay-150">Forecasting BigMart Retail Sales Using Regression Models in Machine Learning</span>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- end of next-project -->
+          
+    </main>
+    <!-- end of main -->
+
+    <!-- ================= start of footer ================= -->
+    <footer class="pt-28 pb-20 sticky bottom-0 z-[1]">
+      <div class="mb-16 overflow-hidden">
+        <a class="footer-cta block text-4xl md:text-5xl font-secondary font-medium mb-8" href="contact.html">
+          <!-- Scrolling Line 1 -->
+          <div class="animated-line animated-line-one mb-5">
+            <div class="line-block">
+              <span class="mr-20 md:mr-24">
+                <span class="cta-text">Let’s make something</span>
+                <img alt="arrow-right" loading="lazy" width="39" height="31" class="inline-block ml-10 md:ml-16 cta-icon" src="../images/arrow-right.svg" />
+              </span>
+              <span class="mr-20 md:mr-24">
+                <span class="cta-text">Let’s make something</span>
+                <img alt="arrow-right" loading="lazy" width="39" height="31" class="inline-block ml-10 md:ml-16 cta-icon" src="../images/arrow-right.svg" />
+              </span>
+              <span class="mr-20 md:mr-24">
+                <span class="cta-text">Let’s make something</span>
+                <img alt="arrow-right" loading="lazy" width="39" height="31" class="inline-block ml-10 md:ml-16 cta-icon" src="../images/arrow-right.svg" />
+              </span>
+              <span class="mr-20 md:mr-24">
+                <span class="cta-text">Let’s make something</span>
+                <img alt="arrow-right" loading="lazy" width="39" height="31" class="inline-block ml-10 md:ml-16 cta-icon" src="../images/arrow-right.svg" />
+              </span>
+              <span class="mr-20 md:mr-24">
+                <span class="cta-text">Let’s make something</span>
+                <img alt="arrow-right" loading="lazy" width="39" height="31" class="inline-block ml-10 md:ml-16 cta-icon" src="../images/arrow-right.svg" />
+              </span>
+            </div>
+            <div class="line-block-copy">
+              <span class="mr-20 md:mr-24">
+                <span class="cta-text">Let’s make something</span>
+                <img alt="arrow-right" loading="lazy" width="39" height="31" class="inline-block ml-10 md:ml-16 cta-icon" src="../images/arrow-right.svg" />
+              </span>
+              <span class="mr-20 md:mr-24">
+                <span class="cta-text">Let’s make something</span>
+                <img alt="arrow-right" loading="lazy" width="39" height="31" class="inline-block ml-10 md:ml-16 cta-icon" src="../images/arrow-right.svg" />
+              </span>
+              <span class="mr-20 md:mr-24">
+                <span class="cta-text">Let’s make something</span>
+                <img alt="arrow-right" loading="lazy" width="39" height="31" class="inline-block ml-10 md:ml-16 cta-icon" src="../images/arrow-right.svg" />
+              </span>
+              <span class="mr-20 md:mr-24">
+                <span class="cta-text">Let’s make something</span>
+                <img alt="arrow-right" loading="lazy" width="39" height="31" class="inline-block ml-10 md:ml-16 cta-icon" src="../images/arrow-right.svg" />
+              </span>
+              <span class="mr-20 md:mr-24">
+                <span class="cta-text">Let’s make something</span>
+                <img alt="arrow-right" loading="lazy" width="39" height="31" class="inline-block ml-10 md:ml-16 cta-icon" src="../images/arrow-right.svg" />
+              </span>
+            </div>
+          </div>
+          <!-- Scrolling Line 2 -->
+          <div class="animated-line animated-line-two">
+            <div class="line-block">
+              <span class="mr-20 md:mr-24">
+                <span class="cta-text">Let’s make something</span>
+                <img alt="arrow-right" loading="lazy" width="39" height="31" class="inline-block ml-10 md:ml-16 cta-icon" src="../images/arrow-right.svg" />
+              </span>
+              <span class="mr-20 md:mr-24">
+                <span class="cta-text">Let’s make something</span>
+                <img alt="arrow-right" loading="lazy" width="39" height="31" class="inline-block ml-10 md:ml-16 cta-icon" src="../images/arrow-right.svg" />
+              </span>
+              <span class="mr-20 md:mr-24">
+                <span class="cta-text">Let’s make something</span>
+                <img alt="arrow-right" loading="lazy" width="39" height="31" class="inline-block ml-10 md:ml-16 cta-icon" src="../images/arrow-right.svg" />
+              </span>
+              <span class="mr-20 md:mr-24">
+                <span class="cta-text">Let’s make something</span>
+                <img alt="arrow-right" loading="lazy" width="39" height="31" class="inline-block ml-10 md:ml-16 cta-icon" src="../images/arrow-right.svg" />
+              </span>
+              <span class="mr-20 md:mr-24">
+                <span class="cta-text">Let’s make something</span>
+                <img alt="arrow-right" loading="lazy" width="39" height="31" class="inline-block ml-10 md:ml-16 cta-icon" src="../images/arrow-right.svg" />
+              </span>
+            </div>
+            <div class="line-block-copy">
+              <span class="mr-20 md:mr-24">
+                <span class="cta-text">Let’s make something</span>
+                <img alt="arrow-right" loading="lazy" width="39" height="31" class="inline-block ml-10 md:ml-16 cta-icon" src="../images/arrow-right.svg" />
+              </span>
+              <span class="mr-20 md:mr-24">
+                <span class="cta-text">Let’s make something</span>
+                <img alt="arrow-right" loading="lazy" width="39" height="31" class="inline-block ml-10 md:ml-16 cta-icon" src="../images/arrow-right.svg" />
+              </span>
+              <span class="mr-20 md:mr-24">
+                <span class="cta-text">Let’s make something</span>
+                <img alt="arrow-right" loading="lazy" width="39" height="31" class="inline-block ml-10 md:ml-16 cta-icon" src="../images/arrow-right.svg" />
+              </span>
+              <span class="mr-20 md:mr-24">
+                <span class="cta-text">Let’s make something</span>
+                <img alt="arrow-right" loading="lazy" width="39" height="31" class="inline-block ml-10 md:ml-16 cta-icon" src="../images/arrow-right.svg" />
+              </span>
+              <span class="mr-20 md:mr-24">
+                <span class="cta-text">Let’s make something</span>
+                <img alt="arrow-right" loading="lazy" width="39" height="31" class="inline-block ml-10 md:ml-16 cta-icon" src="../images/arrow-right.svg" />
+              </span>
+            </div>
+          </div>
+        </a>
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="md:col-6 text-center md:text-left mb-4">
+            <!-- Social Links -->
+            <ul class="inline-flex flex-wrap justify-center md:justify-start gap-x-6">
+              <li class="inline-block hover:opacity-75 transition-op duration-300">
+                <a href="https://instagram.com/amangupta.143" class="link" target="_blank">Instagram</a>
+              </li>
+              <li class="inline-block hover:opacity-75 transition-op duration-300">
+                <a href="https://x.com/aman_gupta_143" class="link" target="_blank">Twitter</a>
+              </li>
+              <li class="inline-block hover:opacity-75 transition-op duration-300">
+                <a href="https://linkedin.com/in/amangupta143" class="link" target="_blank">Linkedin</a>
+              </li>
+              <li class="inline-block hover:opacity-75 transition-op duration-300">
+                <a href="https://github.com/amangupta143" class="link" target="_blank">Github</a>
+              </li>
+            </ul>
+          </div>
+          <div class="md:col-6 text-center md:text-right mb-4">
+            <!-- Footer Menu -->
+            <ul class="inline-flex flex-wrap justify-center md:justify-end gap-x-6">
+              <li class="inline-block hover:opacity-75 transition-op duration-300">
+                <a href="https://drive.google.com/file/d/1w6EG9Yrbs1V2d521ANwp7TFMZZ3nPyqS/view" class="link" target="_blank">Download Resume</a>
+              </li>
+            </ul>
+          </div>
+          <!-- Copyright -->
+          <div class="md:col-6 text-center md:text-left mb-4 md:mb-0">
+            <p class="text-white/75">© 2025 Aman. All rights reserved.</p> 
+          </div>
+          <!-- Developer Info -->
+          <div class="md:col-6 text-center md:text-right">
+            <p class="text-white/75">😊 Thank you for visiting!</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- ================= end of footer ================= -->
+
+    <!-- start of script -->
+    <script src="../plugins/aos/aos.js"></script>
+    <script src="../scripts/main.js"></script>
+  </body>
+</html>

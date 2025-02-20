@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=5"
+    />
+    <title>BigMart Sales Prediction - Aman Gupta</title>
+
+    <meta name="author" content="Aman Gupta" />
+    <meta
+      name="description"
+      content="Retail sales forecasting using machine learning"
+    />
+    <meta
+      property="og:title"
+      content="BigMart Sales Prediction - Aman Gupta Portfolio"
+    />
+    <meta
+      property="og:description"
+      content="XGBoost-based sales forecasting system for retail optimization"
+    />
+
+    <link
+      rel="shortcut icon"
+      href="../images/favicon.png"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="../plugins/aos/aos.css" />
+    <link rel="stylesheet" href="../styles/output.css" />
+    <link rel="stylesheet" href="../styles/hover.css">
+  </head>
+
+  <body>
+
+      <!-- start of header -->
+    <header class="fixed top-0 z-[9000] w-full header [&.invisible]:-translate-y-full">
+      <div class="container">
+        <div class="flex justify-between py-6 items-center relative">
+          <!-- logo -->
+          <div class="hideOnScroll lg:[&.scrolled]:opacity-0 lg:[&.scrolled]:-translate-x-8 w-1/4 transition-all duration-300">
+            <a class="inline-block align-middle" href="../index.html">
+              <img alt="Aver" width="80" height="29" src="../images/logo.svg" />
+            </a>
+          </div>
+
+          <!-- navbar -->
+          <nav class="navbar">
+            <span class="indicator"></span>
+            <a href="../index.html">Home</a>
+            <a href="../about.html">About</a>
+            <a class="active" href="../project.html">Project</a>
+            <a href="../blog.html">Blog</a>
+            <a href="../contact.html">Contact</a>
+          </nav>
+          <div class="navOverlay"></div>
+
+          <!-- toggle mobile-nav -->
+          <button type="button" aria-label="Toggle Mobile Navigation" class="navToggler">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+              <path d="M4 8l16 0"></path>
+              <path d="M4 16l16 0"></path>
+            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+              <path d="M18 6l-12 12"></path>
+              <path d="M6 6l12 12"></path>
+            </svg>
+          </button>
+
+          <!-- social links -->
+          <div class="hideOnScroll lg:[&.scrolled]:opacity-0 lg:[&.scrolled]:translate-x-8 w-1/4 transition-all duration-300 text-right text-sm hidden lg:block">
+            <!-- <span class="block text-white/75 mb-1">Follow me on:</span> -->
+            <ul class="inline-flex gap-x-4 items-center">
+              <li class="inline-block hover:opacity-75 transition-op duration-300">
+                <a href="https://leetcode.com/amangupta_143" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LeetCode">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M13.483 0a1.374 1.374 0 0 0-.961.438L7.116 6.226l-3.854 4.126a5.266 5.266 0 0 0-1.209 2.104 5.35 5.35 0 0 0-.125.513 5.527 5.527 0 0 0 .062 2.362 5.83 5.83 0 0 0 .349 1.017 5.938 5.938 0 0 0 1.271 1.818l4.277 4.193.039.038c2.248 2.165 5.852 2.133 8.063-.074l2.396-2.392c.54-.54.54-1.414.003-1.955a1.378 1.378 0 0 0-1.951-.003l-2.396 2.392a3.021 3.021 0 0 1-4.205.038l-.02-.019-4.276-4.193c-.652-.64-.972-1.469-.948-2.263a2.68 2.68 0 0 1 .066-.523 2.545 2.545 0 0 1 .619-1.164L9.13 8.114c1.058-1.134 3.204-1.27 4.43-.278l3.501 2.831c.593.48 1.461.387 1.94-.207a1.384 1.384 0 0 0-.207-1.943l-3.5-2.831c-.8-.647-1.766-1.045-2.774-1.202l2.015-2.158A1.384 1.384 0 0 0 13.483 0zm-2.866 12.815a1.38 1.38 0 0 0-1.38 1.382 1.38 1.38 0 0 0 1.38 1.382H20.79a1.38 1.38 0 0 0 1.38-1.382 1.38 1.38 0 0 0-1.38-1.382z"/>
+                  </svg>
+                </a>
+              </li>
+              <!-- LinkedIn Icon -->
+              <li class="inline-block hover:opacity-75 transition-op duration-300">
+                <a href="https://www.linkedin.com/in/amangupta143" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19a.66.66 0 000 .14V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66z"></path>
+                  </svg>
+                </a>
+              </li>
+              <!-- GitHub Icon -->
+              <li class="inline-block hover:opacity-75 transition-op duration-300">
+                <a href="https://github.com/amangupta143" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="GitHub">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.17 6.839 9.49.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.464-1.11-1.464-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.699 1.026 1.591 1.026 2.682 0 3.841-2.337 4.687-4.565 4.935.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12c0-5.523-4.477-10-10-10z"></path>
+                  </svg>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </header>
+    <!-- end of header -->
+    <main
+      class="bg-dark relative z-10 pt-[92px] lg:pt-[106px] min-h-[82vh] overflow-hidden"
+    >
+      <section class="pt-24 pb-28">
+        <div class="container">
+          <div class="row justify-center banner">
+            <div class="md:col-7 lg:col-6" data-aos="fade-up-sm">
+              <span
+                class="inline-block text-sm rounded-full bg-[#efefef] px-3 py-1 capitalize text-black mb-6"
+                >Machine Learning</span
+              >
+              <h1 class="text-4xl md:text-5xl mb-4 !leading-tight">
+                BigMart Sales Prediction System
+              </h1>
+              <p>Retail sales forecasting using XGBoost regression</p>
+
+              <ul class="row text-white mt-4">
+                <li class="col-6 mt-8">
+                  <p class="text-white/50 text-xs uppercase tracking-wider mb-2">
+                    Technologies
+                  </p>
+                  <ul>
+                    <li>Python</li>
+                    <li>pandas</li>
+                    <li>scikit-learn</li>
+                    <li>XGBoost</li>
+                  </ul>
+                </li>
+                <li class="col-6 mt-8">
+                  <p class="text-white/50 text-xs uppercase tracking-wider mb-2">
+                    Framework
+                  </p>
+                  <p>Jupyter Notebook</p>
+                </li>
+                <li class="col-6 mt-8">
+                  <p class="text-white/50 text-xs uppercase tracking-wider mb-2">
+                    Features
+                  </p>
+                  <ul>
+                    <li>Data preprocessing pipeline</li>
+                    <li>Feature engineering</li>
+                    <li>Model performance metrics</li>
+                  </ul>
+                </li>
+                <li class="col-6 mt-8">
+                  <p class="text-white/50 text-xs uppercase tracking-wider mb-2">
+                    Links
+                  </p>
+                  <p>
+                    <a href="https://github.com/amangupta143/BigMart-Sales-Prediction" 
+                       class="link" 
+                       target="_blank">GitHub Repository</a>
+                  </p>
+                </li>
+              </ul>
+            </div>
+
+            <div class="md:col-5 lg:col-4 mt-12 md:mt-0" data-aos="fade-up-sm" data-aos-delay="100">
+              <img
+                alt="Sales Prediction"
+                loading="lazy"
+                class="aspect-square object-cover object-center rounded-lg bg-light/20 w-full"
+                src="../images/project/03.jpg"
+              />
+            </div>
+
+            <div class="lg:col-10">
+              <hr class="opacity-5 mt-28 mb-24" />
+            </div>
+          </div>
+
+          <div class="row justify-center" data-aos="fade-in">
+            <div class="lg:col-10">
+              <article class="content content-light [&_img]:w-full">
+                <h2 class="text-3xl mb-6">Project Overview</h2>
+                <p class="text-lg leading-relaxed mb-8 text-white/80">
+                  A machine learning pipeline that predicts sales for 1,559 products across 10 stores. 
+                  The system identifies key drivers of retail performance and provides actionable insights 
+                  for inventory optimization using advanced feature engineering and gradient boosting.
+                </p>
+
+                <div class="grid md:grid-cols-2 gap-8 mb-12">
+                  <div class="relative group">
+                    <div class="absolute inset-0 bg-blue-500/10 rounded-xl transform group-hover:scale-105 transition-transform"></div>
+                    <img
+                      src="../images/project/03-01.svg" alt="Data Analysis"
+                      alt="Data Analysis"
+                      class="rounded-xl shadow-2xl hover:shadow-blue-500/20 transition-shadow"
+                    />
+                  </div>
+
+                  <div>
+                    <h3 class="text-2xl mb-4">Technical Implementation</h3>
+                    <ul class="space-y-4 text-white/80">
+                      <li class="flex items-start">
+                        <span class="text-blue-500 mr-2">▹</span>
+                        Automated missing value treatment (mean/mode imputation)
+                      </li>
+                      <li class="flex items-start">
+                        <span class="text-blue-500 mr-2">▹</span>
+                        IQR-based outlier detection and capping
+                      </li>
+                      <li class="flex items-start">
+                        <span class="text-blue-500 mr-2">▹</span>
+                        Label encoding for categorical features
+                      </li>
+                      <li class="flex items-start">
+                        <span class="text-blue-500 mr-2">▹</span>
+                        XGBoost regression with hyperparameter tuning
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+
+                <h3 class="text-2xl mb-8 font-medium border-b border-white/10 pb-4">Key Features</h3>
+                <div class="grid md:grid-cols-2 gap-6 mb-12">
+                  <div class="mb-4 p-6 bg-white/5 rounded-lg border border-white/10">
+                    <h4 class="text-lg font-medium mb-3">Data Cleaning</h4>
+                    <div class="h-px bg-white/10 mb-4"></div>
+                    <p class="text-white/80">
+                      Handles 17% missing data in item weights and 28% missing store size values
+                      using intelligent imputation strategies
+                    </p>
+                  </div>
+
+                  <div class="mb-4 p-6 bg-white/5 rounded-lg border border-white/10">
+                    <h4 class="text-lg font-medium mb-3 text-green-400">Feature Engineering</h4>
+                    <div class="h-px bg-white/10 mb-4"></div>
+                    <p class="text-white/80">
+                      Transforms 8 categorical variables into numerical features using label encoding
+                    </p>
+                  </div>
+
+                  <div class="mb-4 p-6 bg-white/5 rounded-lg border border-white/10">
+                    <h4 class="text-lg font-medium mb-3 text-purple-400">Model Performance</h4>
+                    <div class="h-px bg-white/10 mb-4"></div>
+                    <p class="text-white/80">
+                      Achieves R² score of 0.67 on training data and 0.57 on test data
+                    </p>
+                  </div>
+
+                  <div class="mb-4 p-6 bg-white/5 rounded-lg border border-white/10">
+                    <h4 class="text-lg font-medium mb-3 text-yellow-400">Insight Generation</h4>
+                    <div class="h-px bg-white/10 mb-4"></div>
+                    <p class="text-white/80">
+                      Identifies key factors impacting sales through feature importance analysis
+                    </p>
+                  </div>
+                </div>
+
+                <h3 class="text-3xl mb-8">Technical Deep Dive</h3>
+                <div class="grid md:grid-cols-2 gap-8 mb-12">
+                  <div class="p-6 bg-black/20 rounded-xl">
+                    <h4 class="text-xl mb-4 text-blue-400">Data Pipeline</h4>
+                    <ol class="space-y-4 text-white/80">
+                      <li>Exploratory data analysis</li>
+                      <li>Outlier treatment using IQR</li>
+                      <li>Categorical feature encoding</li>
+                      <li>Train-test split (80:20)</li>
+                      <li>Model training & evaluation</li>
+                    </ol>
+                  </div>
+
+                  <div class="p-6 bg-black/20 rounded-xl">
+                    <h4 class="text-xl mb-4 text-green-400">Performance Metrics</h4>
+                    <div class="space-y-4">
+                      <div>
+                        <div class="flex justify-between mb-1">
+                          <span>Training R² Score</span>
+                          <span>0.67</span>
+                        </div>
+                        <div class="h-2 bg-white/10 rounded-full">
+                          <div class="h-2 bg-blue-500 rounded-full w-67%"></div>
+                        </div>
+                      </div>
+                      <div>
+                        <div class="flex justify-between mb-1">
+                          <span>Testing R² Score</span>
+                          <span>0.57</span>
+                        </div>
+                        <div class="h-2 bg-white/10 rounded-full">
+                          <div class="h-2 bg-green-500 rounded-full w-57%"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <h3 class="text-3xl mb-6">Challenges & Solutions</h3>
+                <div class="grid gap-6 mb-12">
+                  <div class="p-6 bg-white/5 rounded-lg">
+                    <div class="flex items-center mb-3">
+                      <h4 class="text-lg">⚠️ Missing Data</h4>
+                    </div>
+                    <p class="text-white/80">
+                      Implemented hybrid imputation strategy using mean for numerical features
+                      and mode-based imputation for categorical features
+                    </p>
+                  </div>
+
+                  <div class="p-6 bg-white/5 rounded-lg">
+                    <div class="flex items-center mb-3">
+                      <h4 class="text-lg">⚡ Model Accuracy</h4>
+                    </div>
+                    <p class="text-white/80">
+                      Improved performance through feature engineering and hyperparameter tuning
+                      of XGBoost regressor
+                    </p>
+                  </div>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      <!-- start of next-project -->
+      <section class="py-28 bg-white text-dark rounded-b-2xl overflow-hidden">
+        <div class="container">
+          <div class="mb-16">
+            <!-- next-project -->
+            <h2
+              class="text-4xl lg:text-5xl font-secondary font-medium -mt-[6px] text-center"
+            >
+              Next Project
+            </h2>
+          </div>
+          <div class="row justify-center">
+            <div class="lg:col-6">
+              <div
+                data-aos="true"
+                class="rounded-lg overflow-hidden relative group h-full"
+              >
+                <span
+                  class="absolute h-full group-[.aos-animate]:h-0 w-full z-30 duration-700 left-0 bottom-0"
+                  style="background-color: #55487d; transition-delay: 0ms"
+                ></span>
+
+                <!-- next-project image -->
+                <img
+                  alt="Air Quality Forecasting"
+                  loading="lazy"
+                  width="620"
+                  height="420"
+                  class="scale-150 group-[.aos-animate]:scale-100 duration-700 group-hover:!scale-125 object-cover w-full bg-light/20 has-twoColumns h-[376px]"
+                  style="height: 376px"
+                  src="../images/project/04.jpg"
+                />
+                <div
+                  class="absolute inset-0 z-20 flex justify-center flex-col p-8"
+                >
+                  <span
+                    class="absolute h-full w-full duration-300 left-0 bottom-0 opacity-0 bg-overlay group-hover:opacity-100 -z-10 pointer-events-none"
+                  ></span>
+                  <div
+                    class="flex items-center justify-between opacity-0 -mt-1 group-hover:opacity-100 group-hover:mt-0 duration-300 group-hover:delay-300"
+                  >
+                    <!-- next-project tag -->
+                    <span
+                      class="uppercase text-white bg-white/25 text-sm font-light tracking-wider px-3 py-1 rounded-full backdrop-blur-lg"
+                      >Time Series Analysis</span
+                    >
+
+                    <!-- next-project link -->
+                    <a class="stretched-link" href="../projects/air-quality-forcasting.html">
+                      <img
+                        alt="arrow"
+                        loading="lazy"
+                        width="25"
+                        height="22"
+                        class="inline-block rotate-[135deg]"
+                        src="../images/arrow-right.svg"
+                      />
+                    </a>
+                  </div>
+                  <div class="text-center mt-auto">
+                    <h3
+                      class="text-4xl font-secondary font-semibold text-white mb-2 relative overflow-hidden"
+                    >
+                      <!-- next-project title -->
+                      <span
+                        class="block translate-y-full group-hover:translate-y-0 duration-300"
+                        >Air Quality Forecasting</span
+                      >
+                    </h3>
+                    <!-- next-project category -->
+                    <p class="text-white font-light relative overflow-hidden">
+                      <span
+                        class="block translate-y-full group-hover:translate-y-0 duration-300 group-hover:delay-150"
+                        >Utilizing Machine Learning to Predict and Monitor Air Quality Levels</span
+                      >
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- end of next-project -->
+    </main>
+
+    <!-- ================= start of footer ================= -->
+    <footer class="pt-28 pb-20 sticky bottom-0 z-[1]">
+      <div class="mb-16 overflow-hidden">
+        <a
+          class="footer-cta block text-4xl md:text-5xl font-secondary font-medium mb-8"
+          href="../contact.html"
+        >
+          <!-- Scrolling Line 1 -->
+          <div class="animated-line animated-line-one mb-5">
+            <div class="line-block">
+              <span class="mr-20 md:mr-24">
+                <span class="cta-text">Let’s make something</span>
+                <img
+                  alt="arrow-right"
+                  loading="lazy"
+                  width="39"
+                  height="31"
+                  class="inline-block ml-10 md:ml-16 cta-icon"
+                  src="../images/arrow-right.svg"
+                />
+              </span>
+              <span class="mr-20 md:mr-24">
+                <span class="cta-text">Let’s make something</span>
+                <img
+                  alt="arrow-right"
+                  loading="lazy"
+                  width="39"
+                  height="31"
+                  class="inline-block ml-10 md:ml-16 cta-icon"
+                  src="../images/arrow-right.svg"
+                />
+              </span>
+              <span class="mr-20 md:mr-24">
+                <span class="cta-text">Let’s make something</span>
+                <img
+                  alt="arrow-right"
+                  loading="lazy"
+                  width="39"
+                  height="31"
+                  class="inline-block ml-10 md:ml-16 cta-icon"
+                  src="../images/arrow-right.svg"
+                />
+              </span>
+              <span class="mr-20 md:mr-24">
+                <span class="cta-text">Let’s make something</span>
+                <img
+                  alt="arrow-right"
+                  loading="lazy"
+                  width="39"
+                  height="31"
+                  class="inline-block ml-10 md:ml-16 cta-icon"
+                  src="../images/arrow-right.svg"
+                />
+              </span>
+              <span class="mr-20 md:mr-24">
+                <span class="cta-text">Let’s make something</span>
+                <img
+                  alt="arrow-right"
+                  loading="lazy"
+                  width="39"
+                  height="31"
+                  class="inline-block ml-10 md:ml-16 cta-icon"
+                  src="../images/arrow-right.svg"
+                />
+              </span>
+            </div>
+            <div class="line-block-copy">
+              <span class="mr-20 md:mr-24">
+                <span class="cta-text">Let’s make something</span>
+                <img
+                  alt="arrow-right"
+                  loading="lazy"
+                  width="39"
+                  height="31"
+                  class="inline-block ml-10 md:ml-16 cta-icon"
+                  src="../images/arrow-right.svg"
+                />
+              </span>
+              <span class="mr-20 md:mr-24">
+                <span class="cta-text">Let’s make something</span>
+                <img
+                  alt="arrow-right"
+                  loading="lazy"
+                  width="39"
+                  height="31"
+                  class="inline-block ml-10 md:ml-16 cta-icon"
+                  src="../images/arrow-right.svg"
+                />
+              </span>
+              <span class="mr-20 md:mr-24">
+                <span class="cta-text">Let’s make something</span>
+                <img
+                  alt="arrow-right"
+                  loading="lazy"
+                  width="39"
+                  height="31"
+                  class="inline-block ml-10 md:ml-16 cta-icon"
+                  src="../images/arrow-right.svg"
+                />
+              </span>
+              <span class="mr-20 md:mr-24">
+                <span class="cta-text">Let’s make something</span>
+                <img
+                  alt="arrow-right"
+                  loading="lazy"
+                  width="39"
+                  height="31"
+                  class="inline-block ml-10 md:ml-16 cta-icon"
+                  src="../images/arrow-right.svg"
+                />
+              </span>
+              <span class="mr-20 md:mr-24">
+                <span class="cta-text">Let’s make something</span>
+                <img
+                  alt="arrow-right"
+                  loading="lazy"
+                  width="39"
+                  height="31"
+                  class="inline-block ml-10 md:ml-16 cta-icon"
+                  src="../images/arrow-right.svg"
+                />
+              </span>
+            </div>
+          </div>
+          <!-- Scrolling Line 2 -->
+          <div class="animated-line animated-line-two">
+            <div class="line-block">
+              <span class="mr-20 md:mr-24">
+                <span class="cta-text">Let’s make something</span>
+                <img
+                  alt="arrow-right"
+                  loading="lazy"
+                  width="39"
+                  height="31"
+                  class="inline-block ml-10 md:ml-16 cta-icon"
+                  src="../images/arrow-right.svg"
+                />
+              </span>
+              <span class="mr-20 md:mr-24">
+                <span class="cta-text">Let’s make something</span>
+                <img
+                  alt="arrow-right"
+                  loading="lazy"
+                  width="39"
+                  height="31"
+                  class="inline-block ml-10 md:ml-16 cta-icon"
+                  src="../images/arrow-right.svg"
+                />
+              </span>
+              <span class="mr-20 md:mr-24">
+                <span class="cta-text">Let’s make something</span>
+                <img
+                  alt="arrow-right"
+                  loading="lazy"
+                  width="39"
+                  height="31"
+                  class="inline-block ml-10 md:ml-16 cta-icon"
+                  src="../images/arrow-right.svg"
+                />
+              </span>
+              <span class="mr-20 md:mr-24">
+                <span class="cta-text">Let’s make something</span>
+                <img
+                  alt="arrow-right"
+                  loading="lazy"
+                  width="39"
+                  height="31"
+                  class="inline-block ml-10 md:ml-16 cta-icon"
+                  src="../images/arrow-right.svg"
+                />
+              </span>
+              <span class="mr-20 md:mr-24">
+                <span class="cta-text">Let’s make something</span>
+                <img
+                  alt="arrow-right"
+                  loading="lazy"
+                  width="39"
+                  height="31"
+                  class="inline-block ml-10 md:ml-16 cta-icon"
+                  src="../images/arrow-right.svg"
+                />
+              </span>
+            </div>
+            <div class="line-block-copy">
+              <span class="mr-20 md:mr-24">
+                <span class="cta-text">Let’s make something</span>
+                <img
+                  alt="arrow-right"
+                  loading="lazy"
+                  width="39"
+                  height="31"
+                  class="inline-block ml-10 md:ml-16 cta-icon"
+                  src="../images/arrow-right.svg"
+                />
+              </span>
+              <span class="mr-20 md:mr-24">
+                <span class="cta-text">Let’s make something</span>
+                <img
+                  alt="arrow-right"
+                  loading="lazy"
+                  width="39"
+                  height="31"
+                  class="inline-block ml-10 md:ml-16 cta-icon"
+                  src="../images/arrow-right.svg"
+                />
+              </span>
+              <span class="mr-20 md:mr-24">
+                <span class="cta-text">Let’s make something</span>
+                <img
+                  alt="arrow-right"
+                  loading="lazy"
+                  width="39"
+                  height="31"
+                  class="inline-block ml-10 md:ml-16 cta-icon"
+                  src="../images/arrow-right.svg"
+                />
+              </span>
+              <span class="mr-20 md:mr-24">
+                <span class="cta-text">Let’s make something</span>
+                <img
+                  alt="arrow-right"
+                  loading="lazy"
+                  width="39"
+                  height="31"
+                  class="inline-block ml-10 md:ml-16 cta-icon"
+                  src="../images/arrow-right.svg"
+                />
+              </span>
+              <span class="mr-20 md:mr-24">
+                <span class="cta-text">Let’s make something</span>
+                <img
+                  alt="arrow-right"
+                  loading="lazy"
+                  width="39"
+                  height="31"
+                  class="inline-block ml-10 md:ml-16 cta-icon"
+                  src="../images/arrow-right.svg"
+                />
+              </span>
+            </div>
+          </div>
+        </a>
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="md:col-6 text-center md:text-left mb-4">
+            <!-- Social Links -->
+            <ul
+              class="inline-flex flex-wrap justify-center md:justify-start gap-x-6"
+            >
+              <li
+                class="inline-block hover:opacity-75 transition-op duration-300"
+              >
+                <a
+                  href="https://instagram.com/amangupta.143"
+                  class="link"
+                  target="_blank"
+                  >Instagram</a
+                >
+              </li>
+              <li
+                class="inline-block hover:opacity-75 transition-op duration-300"
+              >
+                <a
+                  href="https://x.com/aman_gupta_143"
+                  class="link"
+                  target="_blank"
+                  >Twitter</a
+                >
+              </li>
+              <li
+                class="inline-block hover:opacity-75 transition-op duration-300"
+              >
+                <a
+                  href="https://linkedin.com/in/amangupta143"
+                  class="link"
+                  target="_blank"
+                  >Linkedin</a
+                >
+              </li>
+              <li
+                class="inline-block hover:opacity-75 transition-op duration-300"
+              >
+                <a
+                  href="https://github.com/amangupta143"
+                  class="link"
+                  target="_blank"
+                  >Github</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div class="md:col-6 text-center md:text-right mb-4">
+            <!-- Footer Menu -->
+            <ul
+              class="inline-flex flex-wrap justify-center md:justify-end gap-x-6"
+            >
+              <li
+                class="inline-block hover:opacity-75 transition-op duration-300"
+              >
+                <a
+                  href="https://drive.google.com/file/d/1w6EG9Yrbs1V2d521ANwp7TFMZZ3nPyqS/view"
+                  class="link"
+                  target="_blank"
+                  >Download Resume</a
+                >
+              </li>
+            </ul>
+          </div>
+          <!-- Copyright -->
+          <div class="md:col-6 text-center md:text-left mb-4 md:mb-0">
+            <p class="text-white/75">© 2025 Aman. All rights reserved.</p>
+          </div>
+          <!-- Developer Info -->
+          <div class="md:col-6 text-center md:text-right">
+            <p class="text-white/75">😊 Thank you for visiting!</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- ================= end of footer ================= -->
+
+    <script src="../plugins/aos/aos.js"></script>
+    <script src="../scripts/main.js"></script>
+  </body>
+</html>

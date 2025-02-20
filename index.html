@@ -1,276 +1,829 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aman Gupta - Coming Soon</title>
-    <style>
-        :root {
-            --primary: #2563eb;
-            --background: #f8fafc;
-            --text: #1e293b;
-            --secondary: #64748b;
-            --gradient: linear-gradient(135deg, #2563eb, #4f46e5);
-        }
+  <head>
+    <meta charSet="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <title>Aman Gupta</title>
+    
+    <meta name="author" content="Platol" />
+    <meta name="description" content="TailwindCSS Personal Portfolio Template" />
+    <meta property="og:title" content="Aver - TailwindCSS Personal Portfolio Template" />
+    <meta property="og:description" content="TailwindCSS Personal Portfolio Template" />
+    <meta property="og:image" content="./images/ogimage.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: system-ui, -apple-system, sans-serif;
-        }
+    <meta name="twitter:title" content="Aver - TailwindCSS Personal Portfolio Template" />
+    <meta name="twitter:image" content="./images/ogimage.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:description" content="TailwindCSS Personal Portfolio Template" />
+    
+    <link rel="shortcut icon" href="./images/favicon.png" type="image/x-icon" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+    
+    <link rel="stylesheet" href="./plugins/aos/aos.css">
+    <link rel="stylesheet" href="./styles/output.css">
+    <link rel="stylesheet" href="./styles/hover.css">
+  </head>
 
-        body {
-            background-color: var(--background);
-            color: var(--text);
-            line-height: 1.6;
-            overflow-x: hidden;
-            min-height: 100vh;
-            background-image: 
-                radial-gradient(circle at 100% 100%, rgba(37, 99, 235, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 0% 0%, rgba(79, 70, 229, 0.1) 0%, transparent 50%);
-        }
+  <body>
+    <!-- start of header -->
+    <header class="fixed top-0 z-[9000] w-full header [&.invisible]:-translate-y-full">
+      <div class="container">
+        <div class="flex justify-between py-6 items-center relative">
+          <!-- logo -->
+          <div class="hideOnScroll lg:[&.scrolled]:opacity-0 lg:[&.scrolled]:-translate-x-8 w-1/4 transition-all duration-300">
+            <a class="inline-block align-middle" href="./index.html">
+              <img alt="Aver" width="80" height="29" src="./images/logo.svg" />
+            </a>
+          </div>
 
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
+          <!-- navbar -->
+          <nav class="navbar">
+            <span class="indicator"></span>
+            <a class="active" href="./index.html">Home</a>
+            <a href="./about.html">About</a>
+            <a href="./project.html">Project</a>
+            <a href="./blog.html">Blog</a>
+            <a href="./contact.html">Contact</a>
+          </nav>
+          <div class="navOverlay"></div>
 
-        #hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            position: relative;
-            overflow: hidden;
-        }
+          <!-- toggle mobile-nav -->
+          <button type="button" aria-label="Toggle Mobile Navigation" class="navToggler">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+              <path d="M4 8l16 0"></path>
+              <path d="M4 16l16 0"></path>
+            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+              <path d="M18 6l-12 12"></path>
+              <path d="M6 6l12 12"></path>
+            </svg>
+          </button>
 
-        .hero-content {
-            display: flex;
-            align-items: center;
-            gap: 4rem;
-        }
-
-        .hero-text {
-            max-width: 600px;
-        }
-
-        .profile-image {
-            width: 280px;
-            height: 280px;
-            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
-            object-fit: cover;
-            border: 4px solid white;
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
-            animation: morphing 10s ease-in-out infinite;
-        }
-
-        @keyframes morphing {
-            0% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
-            25% { border-radius: 58% 42% 75% 25% / 76% 46% 54% 24%; }
-            50% { border-radius: 50% 50% 33% 67% / 55% 27% 73% 45%; }
-            75% { border-radius: 33% 67% 58% 42% / 63% 68% 32% 37%; }
-            100% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
-        }
-
-        .hero-name {
-            font-size: 4.5rem;
-            margin-bottom: 0.5rem;
-            line-height: 1.1;
-            background: var(--gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .hero-title {
-            font-size: 2.25rem;
-            margin-bottom: 1rem;
-            line-height: 1.2;
-        }
-
-        .hero-subtitle {
-            font-size: 1.25rem;
-            color: var(--secondary);
-            margin-bottom: 2rem;
-            max-width: 500px;
-        }
-
-        .announcement-banner {
-            width: 100%;
-            padding: 0.75rem;
-            background: rgba(100, 116, 139, 0.05);
-            border-bottom: 1px solid rgba(100, 116, 139, 0.1);
-            color: var(--secondary);
-            font-size: 0.875rem;
-            text-align: center;
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 100;
-            backdrop-filter: blur(8px);
-        }
-
-        .announcement-text {
-            max-width: 600px;
-            margin: 0 auto;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.5rem;
-        }
-
-        .announcement-icon {
-            display: inline-flex;
-            align-items: center;
-        }
-
-        /* Adjust hero section to account for banner */
-        #hero {
-            padding-top: 3rem;
-        }
-
-
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
-        }
-
-        .cta-button {
-            display: inline-block;
-            padding: 1rem 2rem;
-            background: var(--gradient);
-            color: white;
-            text-decoration: none;
-            border-radius: 0.75rem;
-            font-weight: 500;
-            border: none;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-            margin-top: 1.5rem;
-            box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.2);
-        }
-
-        .cta-button::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-            transition: 0.5s;
-        }
-
-        .cta-button:hover::before {
-            left: 100%;
-        }
-
-        .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.3);
-        }
-
-        .social-links {
-            display: flex;
-            gap: 1.5rem;
-            margin-top: 2rem;
-        }
-
-        .social-link {
-            color: var(--secondary);
-            text-decoration: none;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.5rem 1rem;
-            border-radius: 0.5rem;
-            background: white;
-            box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.1);
-        }
-
-        .social-link:hover {
-            color: var(--primary);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-        }
-
-        .social-link span {
-            font-size: 0.875rem;
-            font-weight: 500;
-        }
-
-        @media (max-width: 768px) {
-            .hero-content {
-                flex-direction: column-reverse;
-                text-align: center;
-                gap: 2rem;
-            }
-
-            .hero-name {
-                font-size: 3rem;
-            }
-
-            .hero-title {
-                font-size: 1.75rem;
-            }
-
-            .social-links {
-                justify-content: center;
-                flex-wrap: wrap;
-            }
-        }
-    </style>
-</head>
-<body>
-    <div class="announcement-banner">
-        <div class="announcement-text">
-            <span class="announcement-icon">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <circle cx="12" cy="12" r="10"></circle>
-                    <line x1="12" y1="16" x2="12" y2="12"></line>
-                    <line x1="12" y1="8" x2="12.01" y2="8"></line>
-                </svg>
-            </span>
-            Full portfolio site launching soon — stay tuned
+          <!-- social links -->
+          <div class="hideOnScroll lg:[&.scrolled]:opacity-0 lg:[&.scrolled]:translate-x-8 w-1/4 transition-all duration-300 text-right text-sm hidden lg:block">
+            <!-- <span class="block text-white/75 mb-1">Follow me on:</span> -->
+            <ul class="inline-flex gap-x-4 items-center">
+              <li class="inline-block hover:opacity-75 transition-op duration-300">
+                <a href="https://leetcode.com/amangupta_143" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LeetCode">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M13.483 0a1.374 1.374 0 0 0-.961.438L7.116 6.226l-3.854 4.126a5.266 5.266 0 0 0-1.209 2.104 5.35 5.35 0 0 0-.125.513 5.527 5.527 0 0 0 .062 2.362 5.83 5.83 0 0 0 .349 1.017 5.938 5.938 0 0 0 1.271 1.818l4.277 4.193.039.038c2.248 2.165 5.852 2.133 8.063-.074l2.396-2.392c.54-.54.54-1.414.003-1.955a1.378 1.378 0 0 0-1.951-.003l-2.396 2.392a3.021 3.021 0 0 1-4.205.038l-.02-.019-4.276-4.193c-.652-.64-.972-1.469-.948-2.263a2.68 2.68 0 0 1 .066-.523 2.545 2.545 0 0 1 .619-1.164L9.13 8.114c1.058-1.134 3.204-1.27 4.43-.278l3.501 2.831c.593.48 1.461.387 1.94-.207a1.384 1.384 0 0 0-.207-1.943l-3.5-2.831c-.8-.647-1.766-1.045-2.774-1.202l2.015-2.158A1.384 1.384 0 0 0 13.483 0zm-2.866 12.815a1.38 1.38 0 0 0-1.38 1.382 1.38 1.38 0 0 0 1.38 1.382H20.79a1.38 1.38 0 0 0 1.38-1.382 1.38 1.38 0 0 0-1.38-1.382z"/>
+                  </svg>
+                </a>
+              </li>
+              <!-- LinkedIn Icon -->
+              <li class="inline-block hover:opacity-75 transition-op duration-300">
+                <a href="https://www.linkedin.com/in/amangupta143" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19a.66.66 0 000 .14V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66z"></path>
+                  </svg>
+                </a>
+              </li>
+              <!-- GitHub Icon -->
+              <li class="inline-block hover:opacity-75 transition-op duration-300">
+                <a href="https://github.com/amangupta143" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="GitHub">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.17 6.839 9.49.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.464-1.11-1.464-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.699 1.026 1.591 1.026 2.682 0 3.841-2.337 4.687-4.565 4.935.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12c0-5.523-4.477-10-10-10z"></path>
+                  </svg>
+                </a>
+              </li>
+            </ul>
+          </div>
         </div>
-    </div>
-    <section id="hero">
-        <div class="container">
-            <div class="hero-content">
-                <div class="hero-text">
-                    <h1 class="hero-name">Aman Gupta</h1>
-                    <h2 class="hero-title">Software Developer & ML Engineer</h2>
-                    <p class="hero-subtitle">Crafting intelligent solutions to complex problems with a passion for innovation and elegant code.</p>
-                    <a href="https://drive.google.com/file/d/1w6EG9Yrbs1V2d521ANwp7TFMZZ3nPyqS/view?usp=sharing" class="cta-button" target="_blank" download>Download Resume</a>
-                    <div class="social-links">
-                        <a href="https://github.com/amangupta143" class="social-link" target="_blank">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334 -5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                            </svg>
-                            <span>GitHub</span>
-                        </a>
-                        <a href="https://linkedin.com/in/amangupta143" class="social-link" target="_blank">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-                            </svg>
-                            <span>LinkedIn</span>
-                        </a>
-                        <a href="https://instagram.com/amangupta.143" class="social-link" target="_blank">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-                            </svg>
-                            <span>Instagram</span>
-                        </a>
-                    </div>
+      </div>
+    </header>
+    <!-- end of header -->
+
+    
+
+    <!-- start of main -->
+    <main class="bg-dark relative z-10 pt-[92px] lg:pt-[106px] min-h-[82vh] overflow-hidden">
+      
+      <!-- ================= start of banner ================= -->
+      <section class="banner homepage-banner">
+        <div class="container h-full">
+          <div class="row h-full items-center">
+            <div class="col-12 text-center">
+
+              <!-- image/mobile -->
+              <div class="relative mb-6 mx-auto inline-block md:hidden">
+                <div class="bg-[#E3DFDC] mx-5 rounded-full overflow-hidden">
+                  <img 
+                    data-aos="slide-up" 
+                    data-aos-duration="500" 
+                    data-aos-delay="150" 
+                    loading="lazy" 
+                    width="150" 
+                    height="150"
+                    class="mx-auto"
+                    alt="CharlieEdward" 
+                    src="./images/02.png" />
                 </div>
-                <img src="https://github.com/user-attachments/assets/59f1f4d5-001d-4845-9e25-d692f9e8be2e" alt="Aman Gupta" class="profile-image">
+                <svg data-aos class="absolute top-[-0px] right-[10px] transition duration-1000 delay-300 scale-0 rotate-[360deg] [&.aos-animate]:scale-100 [&.aos-animate]:rotate-0" width="51" height="52" viewBox="0 0 51 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M21.7856 25.3396C21.8855 25.0011 21.9855 24.6907 22.0712 24.3804C22.4853 22.7864 22.8852 21.1925 23.4279 19.6267C24.4132 16.7914 25.5557 14.0125 26.7268 11.2477C28.0263 8.1867 29.2973 5.12569 30.5826 2.06469C30.7825 1.57098 31.0253 1.10548 31.2681 0.625872C31.3538 0.442494 31.4823 0.273222 31.6251 0.132161C31.8679 -0.107641 32.1821 -0.00889879 32.2106 0.329646C32.2392 0.611766 32.2392 0.893887 32.1821 1.17601C31.9679 2.37502 31.7536 3.57403 31.4966 4.75894C30.8111 7.98921 30.1113 11.2195 29.5687 14.478C29.2545 16.3964 28.9831 18.3148 28.7118 20.2332C28.469 21.926 28.2691 23.6046 28.0549 25.2973C28.0263 25.5512 28.012 25.8051 27.9835 26.1296C28.1263 26.0449 28.1977 26.0026 28.2691 25.9462C28.5547 25.6923 28.8546 25.4384 29.1117 25.1562C31.8822 22.3068 35.0097 19.8665 38.3086 17.6377C38.5085 17.5108 38.7085 17.3838 38.9227 17.271C39.0369 17.2146 39.1655 17.1863 39.2797 17.1722C39.5082 17.1581 39.6796 17.3133 39.6796 17.539C39.6796 17.7083 39.651 17.9057 39.5653 18.0609C39.3654 18.47 39.1655 18.8791 38.9084 19.2458C38.0515 20.4307 37.1947 21.6156 36.3093 22.7723C34.9811 24.5074 33.6245 26.2283 32.282 27.9633C32.025 28.2878 31.7965 28.6404 31.5823 29.0072C31.2681 29.5291 31.3252 29.783 31.8536 30.1075C32.2535 30.3473 32.6676 30.5588 33.0961 30.7422C34.6384 31.3911 36.2379 31.8989 37.8373 32.3785C41.9074 33.6199 45.9346 34.9881 49.8762 36.5821C50.1189 36.6809 50.376 36.7655 50.6188 36.8642C50.7187 36.9066 50.8044 36.9489 50.8901 37.0194C51.0757 37.1887 51.0186 37.4849 50.7759 37.5695C50.6902 37.5978 50.5902 37.6119 50.5045 37.6119C49.5477 37.626 48.5909 37.6542 47.634 37.626C45.2063 37.5272 42.7785 37.2733 40.3651 36.9771C36.8234 36.5539 33.3103 35.9756 29.8257 35.2562C29.3545 35.1574 28.8832 35.0869 28.4119 35.0022C28.3119 34.9881 28.212 34.974 28.0977 34.9881C27.7264 34.9881 27.5693 35.0728 27.4694 35.4395C27.3408 35.9332 27.2266 36.427 27.1409 36.9207C26.7553 39.0507 26.4411 41.1948 26.1984 43.353C26.0413 44.7495 25.927 46.1601 25.7557 47.5566C25.6271 48.6569 25.4415 49.743 25.2844 50.8433C25.2415 51.0831 25.1559 51.3229 25.0702 51.5486C24.9845 51.7884 24.8274 52 24.5275 52C24.2562 51.9859 24.0991 51.7884 24.0277 51.5486C23.8991 51.1677 23.7706 50.7728 23.7135 50.3778C23.5707 49.4327 23.4279 48.4735 23.3707 47.5284C23.2279 45.215 23.1137 42.9157 23.0423 40.6023C22.9994 39.2058 23.0423 37.8093 23.0566 36.4128C23.0566 36.2859 23.0566 36.1448 23.0566 35.9615C22.8423 35.9897 22.6567 35.9897 22.471 36.0179C20.4146 36.3564 18.401 36.8219 16.3731 37.3015C12.9171 38.0915 9.46111 38.9519 5.96228 39.6431C4.47706 39.9394 2.97757 40.1933 1.47807 40.4613C1.22101 40.5036 0.949674 40.5177 0.692618 40.5459C0.621213 40.5459 0.549808 40.56 0.492684 40.5459C0.192785 40.5318 0.0356946 40.4472 0.00713275 40.2638C-0.03571 40.024 0.12138 39.9111 0.292751 39.8124C0.678337 39.6008 1.04964 39.4033 1.43523 39.2058C5.07686 37.3015 8.80419 35.5665 12.5029 33.7891C14.2309 32.9569 15.9304 32.04 17.6298 31.1513C17.844 31.0385 18.0297 30.9115 18.2867 30.7563C18.1582 30.5871 18.0582 30.4178 17.9297 30.2908C17.2157 29.5291 16.5302 28.7392 15.759 28.0339C14.2167 26.6233 12.6458 25.255 11.0606 23.8867C9.13265 22.2222 7.23329 20.5295 5.49101 18.6816C5.10543 18.2725 4.73412 17.8352 4.3771 17.3979C4.27713 17.2851 4.19145 17.144 4.10576 17.003C3.99151 16.8055 4.00579 16.6221 4.13432 16.4951C4.24857 16.3682 4.43422 16.3541 4.63416 16.4528C4.70556 16.481 4.77696 16.5375 4.84837 16.5657C5.80519 17.1017 6.73345 17.6659 7.70456 18.1738C10.5893 19.669 13.4883 21.1642 16.316 22.7864C17.6726 23.5623 19.0865 24.2111 20.5717 24.7331C20.8002 24.8177 21.0001 24.9305 21.2143 25.0434C21.4 25.128 21.5713 25.2268 21.7856 25.3396Z" fill="#ff9800"></path>
+                </svg>
+              </div>
+
+              <h1 class="name md:flex items-center flex-wrap justify-center font-secondary" data-aos="fade-up-sm">
+                <!-- first name -->
+                <span class="inline-block">Aman</span>
+                
+                <!-- image/desktop -->
+                <div class="relative my-4 md:my-0 hidden md:block">
+                  <div class="bg-[#E3DFDC] mx-5 rounded-full overflow-hidden">
+                    <img 
+                      data-aos="slide-up" 
+                      data-aos-duration="500" 
+                      data-aos-delay="150" 
+                      loading="lazy" 
+                      width="150" 
+                      height="150"
+                      class="mx-auto"
+                      alt="CharlieEdward" 
+                      src="./images/02.png" />
+                  </div>
+                  <svg data-aos class="absolute top-[-0px] right-[10px] transition duration-1000 delay-300 scale-0 rotate-[360deg] [&.aos-animate]:scale-100 [&.aos-animate]:rotate-0" width="51" height="52" viewBox="0 0 51 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21.7856 25.3396C21.8855 25.0011 21.9855 24.6907 22.0712 24.3804C22.4853 22.7864 22.8852 21.1925 23.4279 19.6267C24.4132 16.7914 25.5557 14.0125 26.7268 11.2477C28.0263 8.1867 29.2973 5.12569 30.5826 2.06469C30.7825 1.57098 31.0253 1.10548 31.2681 0.625872C31.3538 0.442494 31.4823 0.273222 31.6251 0.132161C31.8679 -0.107641 32.1821 -0.00889879 32.2106 0.329646C32.2392 0.611766 32.2392 0.893887 32.1821 1.17601C31.9679 2.37502 31.7536 3.57403 31.4966 4.75894C30.8111 7.98921 30.1113 11.2195 29.5687 14.478C29.2545 16.3964 28.9831 18.3148 28.7118 20.2332C28.469 21.926 28.2691 23.6046 28.0549 25.2973C28.0263 25.5512 28.012 25.8051 27.9835 26.1296C28.1263 26.0449 28.1977 26.0026 28.2691 25.9462C28.5547 25.6923 28.8546 25.4384 29.1117 25.1562C31.8822 22.3068 35.0097 19.8665 38.3086 17.6377C38.5085 17.5108 38.7085 17.3838 38.9227 17.271C39.0369 17.2146 39.1655 17.1863 39.2797 17.1722C39.5082 17.1581 39.6796 17.3133 39.6796 17.539C39.6796 17.7083 39.651 17.9057 39.5653 18.0609C39.3654 18.47 39.1655 18.8791 38.9084 19.2458C38.0515 20.4307 37.1947 21.6156 36.3093 22.7723C34.9811 24.5074 33.6245 26.2283 32.282 27.9633C32.025 28.2878 31.7965 28.6404 31.5823 29.0072C31.2681 29.5291 31.3252 29.783 31.8536 30.1075C32.2535 30.3473 32.6676 30.5588 33.0961 30.7422C34.6384 31.3911 36.2379 31.8989 37.8373 32.3785C41.9074 33.6199 45.9346 34.9881 49.8762 36.5821C50.1189 36.6809 50.376 36.7655 50.6188 36.8642C50.7187 36.9066 50.8044 36.9489 50.8901 37.0194C51.0757 37.1887 51.0186 37.4849 50.7759 37.5695C50.6902 37.5978 50.5902 37.6119 50.5045 37.6119C49.5477 37.626 48.5909 37.6542 47.634 37.626C45.2063 37.5272 42.7785 37.2733 40.3651 36.9771C36.8234 36.5539 33.3103 35.9756 29.8257 35.2562C29.3545 35.1574 28.8832 35.0869 28.4119 35.0022C28.3119 34.9881 28.212 34.974 28.0977 34.9881C27.7264 34.9881 27.5693 35.0728 27.4694 35.4395C27.3408 35.9332 27.2266 36.427 27.1409 36.9207C26.7553 39.0507 26.4411 41.1948 26.1984 43.353C26.0413 44.7495 25.927 46.1601 25.7557 47.5566C25.6271 48.6569 25.4415 49.743 25.2844 50.8433C25.2415 51.0831 25.1559 51.3229 25.0702 51.5486C24.9845 51.7884 24.8274 52 24.5275 52C24.2562 51.9859 24.0991 51.7884 24.0277 51.5486C23.8991 51.1677 23.7706 50.7728 23.7135 50.3778C23.5707 49.4327 23.4279 48.4735 23.3707 47.5284C23.2279 45.215 23.1137 42.9157 23.0423 40.6023C22.9994 39.2058 23.0423 37.8093 23.0566 36.4128C23.0566 36.2859 23.0566 36.1448 23.0566 35.9615C22.8423 35.9897 22.6567 35.9897 22.471 36.0179C20.4146 36.3564 18.401 36.8219 16.3731 37.3015C12.9171 38.0915 9.46111 38.9519 5.96228 39.6431C4.47706 39.9394 2.97757 40.1933 1.47807 40.4613C1.22101 40.5036 0.949674 40.5177 0.692618 40.5459C0.621213 40.5459 0.549808 40.56 0.492684 40.5459C0.192785 40.5318 0.0356946 40.4472 0.00713275 40.2638C-0.03571 40.024 0.12138 39.9111 0.292751 39.8124C0.678337 39.6008 1.04964 39.4033 1.43523 39.2058C5.07686 37.3015 8.80419 35.5665 12.5029 33.7891C14.2309 32.9569 15.9304 32.04 17.6298 31.1513C17.844 31.0385 18.0297 30.9115 18.2867 30.7563C18.1582 30.5871 18.0582 30.4178 17.9297 30.2908C17.2157 29.5291 16.5302 28.7392 15.759 28.0339C14.2167 26.6233 12.6458 25.255 11.0606 23.8867C9.13265 22.2222 7.23329 20.5295 5.49101 18.6816C5.10543 18.2725 4.73412 17.8352 4.3771 17.3979C4.27713 17.2851 4.19145 17.144 4.10576 17.003C3.99151 16.8055 4.00579 16.6221 4.13432 16.4951C4.24857 16.3682 4.43422 16.3541 4.63416 16.4528C4.70556 16.481 4.77696 16.5375 4.84837 16.5657C5.80519 17.1017 6.73345 17.6659 7.70456 18.1738C10.5893 19.669 13.4883 21.1642 16.316 22.7864C17.6726 23.5623 19.0865 24.2111 20.5717 24.7331C20.8002 24.8177 21.0001 24.9305 21.2143 25.0434C21.4 25.128 21.5713 25.2268 21.7856 25.3396Z" fill="#ff9800"></path>
+                  </svg>
+                </div>
+
+                <!-- last name -->
+                <span class="inline-block">Gupta</span>
+              </h1>
+
+              <!-- introduction -->
+              <div class="mt-5 md:mt-8 md:text-xl font-light md:max-w-xl mx-auto opacity-80" data-aos="fade-up-sm" data-aos-delay="100">
+                A machine learning engineer and software developer, dedicated to exploring AI's potential to solve real-world problems &amp; drive innovation through impactful solutions.
+              </div>
             </div>
+          </div>
         </div>
-    </section>
-</body>
+      </section>
+      <!-- ================= end of banner ================= -->
+
+
+
+
+      <div class="text-center mt-0 mb-0" data-aos="slide-up">
+        <a class="button bg-dark/30 backdrop-blur-[0px] border-white/10" target="_blank" href="https://drive.google.com/file/d/1w6EG9Yrbs1V2d521ANwp7TFMZZ3nPyqS/view">
+          <span>
+            <svg class="inline align-bottom mr-2 transition-transform ease-out duration-1000" width="16" height="16" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M6 21H18M12 3V17M12 17L17 12M12 17L7 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>Download Resume
+          </span>
+        </a>
+      </div>
+      
+
+
+
+      <!-- <div class="order-1 lg:order-2 " style="display: flex; justify-content: center; margin-bottom: 0; padding: 0;" data-aos="slide-up" >
+        <button class="button button-sm button-dark download-resume-btn" >
+          <span>
+            <svg class="inline align-bottom mr-2 transition-transform ease-out duration-1000" width="16" height="16" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M6 21H18M12 3V17M12 17L17 12M12 17L7 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>Download Resume</span>
+        </button>
+      </div> -->
+
+
+
+
+      <!-- ================= start of professional experience ================= -->
+<section class="pt-10 lg:pb-10 overflow-hidden">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 mb-8">
+        <!-- Section Title -->
+        <h2 class="text-3xl font-secondary font-medium text-center" data-aos="fade">Professional Experience</h2>
+      </div>
+      <div class="col-12">
+        <div class="flex justify-center items-center flex-wrap gap-8 md:gap-16">
+          <!-- Project Stats -->
+          <div class="text-center mx-4" data-aos="fade-up" data-aos-delay="0">
+            <h3 class="text-4xl md:text-5xl font-secondary font-medium text-white mb-2">10+</h3>
+            <p class="text-white/75">Projects Completed</p>
+          </div>
+
+          <!-- Years Experience -->
+          <div class="text-center mx-4" data-aos="fade-up" data-aos-delay="100">
+            <h3 class="text-4xl md:text-5xl font-secondary font-medium text-white mb-2">02+</h3>
+            <p class="text-white/75">Years Project Work</p>
+          </div>
+
+          <!-- Happy Clients -->
+          <div class="text-center mx-4" data-aos="fade-up" data-aos-delay="200">
+            <h3 class="text-4xl md:text-5xl font-secondary font-medium text-white mb-2">80K+</h3>
+            <p class="text-white/75">Lines of Code</p>
+          </div>
+
+          <!-- Awards -->
+          <div class="text-center mx-4" data-aos="fade-up" data-aos-delay="300">
+            <h3 class="text-4xl md:text-5xl font-secondary font-medium text-white mb-2">15+</h3>
+            <p class="text-white/75">Articles Published</p>
+          </div>
+
+          <!-- Awards -->
+          <!-- <div class="text-center mx-4" data-aos="fade-up" data-aos-delay="300">
+            <h3 class="text-4xl md:text-5xl font-secondary font-medium text-white mb-2">350+</h3>
+            <p class="text-white/75">GitHub Contributions</p>
+          </div> -->
+
+          <!-- Awards -->
+          <!-- <div class="text-center mx-4" data-aos="fade-up" data-aos-delay="300">
+            <h3 class="text-4xl md:text-5xl font-secondary font-medium text-white mb-2">04+</h3>
+            <p class="text-white/75">Certifications Earned</p>
+          </div> -->
+
+          <!-- More Awards ideas -->
+          <!-- 500+ Hours of Coding, 100+ Hours of Project Work, 50+ Articles Published, 350+ GitHub Contributions, 4 Certifications Earned, 200+ GitHub Stars/Forks, 03+ Awards/Recognitions, 05+ Hackathons Participated, 15+ Software Tools Utilized, 10+ Open Source Contributions, 05+ Research Papers, and 05+ Talks/Presentations. -->
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ================= end of professional experience ================= -->
+
+      <!-- ================= start of brands ================= -->
+      <!-- <section class="pt-20 lg:pb-10 overflow-hidden">
+        <div class="container">
+          <div class="row">
+            <div class="col-12 mb-8"> -->
+
+
+              <!-- Section Title -->
+
+
+              <!-- <h2 class="text-3xl font-secondary font-medium text-center" data-aos="fade">As Featured By</h2>
+            </div>
+            <div class="col-12">
+              <div class="flex justify-center items-center flex-wrap">
+                <div class="mx-4 sm:mx-8 my-4" data-aos="fade-left" data-aos-delay="0">
+                  <img width="120" height="80" class="w-auto h-auto sm:max-h-20" alt="Brand" src="./images/brands/01.svg" style="filter: brightness(0) invert(1);" style="opacity: 0.3;" />
+                </div>
+                <div class="mx-4 sm:mx-8 my-4" data-aos="fade-left" data-aos-delay="50">
+                  <img width="120" height="80" class="w-auto h-auto sm:max-h-20" alt="Brand" src="./images/brands/02.svg" style="filter: brightness(0) invert(1);" style="opacity: 0.3;" />
+                </div>
+                <div class="mx-4 sm:mx-8 my-4" data-aos="fade-left" data-aos-delay="100">
+                  <img width="120" height="80" class="w-auto h-auto sm:max-h-20" alt="Brand" src="./images/brands/03.svg" style="filter: brightness(0) invert(1);" style="opacity: 0.3;" />
+                </div>
+                <div class="mx-4 sm:mx-8 my-4" data-aos="fade-left" data-aos-delay="150">
+                  <img width="120" height="80" class="w-auto h-auto sm:max-h-20" alt="Brand" src="./images/brands/04.svg" style="filter: brightness(0) invert(1);" style="opacity: 0.3;" />
+                </div>
+                <div class="mx-4 sm:mx-8 my-4" data-aos="fade-left" data-aos-delay="200">
+                  <img width="120" height="80" class="w-auto h-auto sm:max-h-20" alt="Brand" src="./images/brands/05.svg" style="filter: brightness(0) invert(1);" style="opacity: 0.3;" />
+              </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section> -->
+      <!-- ================= end of brands ================= -->
+
+      <!-- ================= start of recent-works ================= -->
+      <section class="py-28" >
+        <div class="container">
+          <div class="row mb-16 items-end">
+            <div class="sm:col-8 order-2 sm:order-1">
+              <!-- Section Title -->
+              <h2 class="text-4xl lg:text-5xl font-secondary font-medium -mt-[6px] text-center sm:text-left">Recent Works</h2>
+            </div>
+            <div class="sm:col-4 order-1 sm:order-2 block mb-4 sm:mb-0 text-center sm:text-right">
+              <!-- Section Subtitle -->
+              <span class="font-secondary text-2xl leading-none text-white/75">Projects — 18</span>
+            </div>
+          </div>
+          <div class="row md:gx-4 gy-4">
+            <div class="lg:col-4 sm:col-6">
+              <div data-aos class="rounded-lg overflow-hidden relative group h-full">
+                <!-- overlay -->
+                <span class="absolute h-full group-[.aos-animate]:h-0 w-full z-30 duration-700 left-0 bottom-0" style="background-color:#67A94C;transition-delay:0ms"></span>
+                
+                <!-- image -->
+                <img 
+                  loading="lazy" 
+                  width="520" 
+                  height="550" 
+                  class="scale-150 group-[.aos-animate]:scale-100 duration-700 group-hover:!scale-125 object-cover w-full h-full bg-light/20" 
+                  alt="Blood Group Detection" 
+                  src="./images/project/01.jpg" />
+
+                <!-- content -->
+                <div class="absolute inset-0 z-20 flex justify-center flex-col p-8">
+                  <span class="absolute h-full w-full duration-300 left-0 bottom-0 opacity-0 bg-overlay group-hover:opacity-100 -z-10 pointer-events-none"></span>
+
+                  <div class="flex items-center justify-between opacity-0 -mt-1 group-hover:opacity-100 group-hover:mt-0 duration-300 group-hover:delay-300">
+
+                    <!-- category -->
+                    <span class="uppercase text-white bg-white/25 text-sm font-light tracking-wider px-3 py-1 rounded-full backdrop-blur-lg">Image Processing (CNN)</span>
+
+                    <!-- link -->
+                    <a class="stretched-link" href="projects/coming-soon.html">
+                      <img alt="arrow" loading="lazy" width="25" height="22" class="inline-block rotate-[135deg]" src="./images/arrow-right.svg" />
+                    </a>
+                  </div>
+                  <div class="text-center mt-auto">
+                    <h3 class="text-4xl font-secondary font-semibold text-white mb-2 relative overflow-hidden">
+
+                      <!-- title -->
+                      <span class="block translate-y-full group-hover:translate-y-0 duration-300">Blood Group Detection</span>
+                    </h3>
+                    <p class="text-white font-light relative overflow-hidden">
+
+                      <!-- subtitle -->
+                      <span class="block translate-y-full group-hover:translate-y-0 duration-300 group-hover:delay-150">Using Deep Learning (CNN) to Predict Blood Groups from Fingerprint Images</span>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="lg:col-4 sm:col-6">
+              <div data-aos class="rounded-lg overflow-hidden relative group h-full">
+                <!-- overlay -->
+                <span class="absolute h-full group-[.aos-animate]:h-0 w-full z-30 duration-700 left-0 bottom-0" style="background-color:#55487D;transition-delay:100ms"></span>
+                
+                <!-- image -->
+                <img 
+                  alt="Sign Language Recognition System" 
+                  loading="lazy" 
+                  width="520" 
+                  height="550" 
+                  class="scale-150 group-[.aos-animate]:scale-100 duration-700 group-hover:!scale-125 object-cover w-full h-full bg-light/20" 
+                  src="./images/project/06.png" />
+              
+                <!-- content -->
+                <div class="absolute inset-0 z-20 flex justify-center flex-col p-8">
+                  <span class="absolute h-full w-full duration-300 left-0 bottom-0 opacity-0 bg-overlay group-hover:opacity-100 -z-10 pointer-events-none"></span>
+              
+                  <div class="flex items-center justify-between opacity-0 -mt-1 group-hover:opacity-100 group-hover:mt-0 duration-300 group-hover:delay-300">
+              
+                    <!-- category -->
+                    <span class="uppercase text-white bg-white/25 text-sm font-light tracking-wider px-3 py-1 rounded-full backdrop-blur-lg">Computer Vision</span>
+              
+                    <!-- link -->
+                    <a class="stretched-link" href="projects/Sign-Language-Recognition-System.html">
+                      <img alt="arrow" loading="lazy" width="25" height="22" class="inline-block rotate-[135deg]" src="./images/arrow-right.svg" />
+                    </a>
+                  </div>
+                  <div class="text-center mt-auto">
+                    <h3 class="text-4xl font-secondary font-semibold text-white mb-2 relative overflow-hidden">
+              
+                      <!-- title -->
+                      <span class="block translate-y-full group-hover:translate-y-0 duration-300">Sign Language Recognition</span>
+                    </h3>
+                    <p class="text-white font-light relative overflow-hidden">
+              
+                      <!-- subtitle -->
+                      <span class="block translate-y-full group-hover:translate-y-0 duration-300 group-hover:delay-150">Bridging communication gaps with AI-driven sign language recognition system</span>
+                    </p>
+                  </div>
+                </div>
+              </div>
+              
+            </div>
+            <div class="lg:col-4 sm:col-6">
+              <div data-aos class="rounded-lg overflow-hidden relative group h-full">
+                <!-- overlay -->
+                <span class="absolute h-full group-[.aos-animate]:h-0 w-full z-30 duration-700 left-0 bottom-0" style="background-color:#BE0000;transition-delay:200ms"></span>
+                
+                <!-- image -->
+                <img 
+                  alt="BigMart Sales Prediction" 
+                  loading="lazy" 
+                  width="520" 
+                  height="550" 
+                  class="scale-150 group-[.aos-animate]:scale-100 duration-700 group-hover:!scale-125 object-cover w-full h-full bg-light/20" 
+                  src="./images/project/03.jpg" />
+              
+                <!-- content -->
+                <div class="absolute inset-0 z-20 flex justify-center flex-col p-8">
+                  <span class="absolute h-full w-full duration-300 left-0 bottom-0 opacity-0 bg-overlay group-hover:opacity-100 -z-10 pointer-events-none"></span>
+              
+                  <div class="flex items-center justify-between opacity-0 -mt-1 group-hover:opacity-100 group-hover:mt-0 duration-300 group-hover:delay-300">
+              
+                    <!-- category -->
+                    <span class="uppercase text-white bg-white/25 text-sm font-light tracking-wider px-3 py-1 rounded-full backdrop-blur-lg">Regression</span>
+              
+                    <!-- link -->
+                    <a class="stretched-link" href="projects/BigMart-Sales-Prediction.html">
+                      <img alt="arrow" loading="lazy" width="25" height="22" class="inline-block rotate-[135deg]" src="./images/arrow-right.svg" />
+                    </a>
+                  </div>
+                  <div class="text-center mt-auto">
+                    <h3 class="text-4xl font-secondary font-semibold text-white mb-2 relative overflow-hidden">
+              
+                      <!-- title -->
+                      <span class="block translate-y-full group-hover:translate-y-0 duration-300">BigMart Sales Prediction</span>
+                    </h3>
+                    <p class="text-white font-light relative overflow-hidden">
+              
+                      <!-- subtitle -->
+                      <span class="block translate-y-full group-hover:translate-y-0 duration-300 group-hover:delay-150">Forecasting BigMart Retail Sales Using Regression Models in Machine Learning</span>
+                    </p>
+                  </div>
+                </div>
+              </div>              
+            </div>
+            <div class="sm:col-6">
+              <div data-aos class="rounded-lg overflow-hidden relative group h-full">
+                <!-- overlay -->
+                <span class="absolute h-full group-[.aos-animate]:h-0 w-full z-30 duration-700 left-0 bottom-0" style="background-color:#307B93;transition-delay:300ms"></span>
+                
+                <!-- image -->
+                <img 
+                  alt="Air Quality Forecasting" 
+                  loading="lazy" 
+                  width="620" 
+                  height="420" 
+                  class="scale-150 group-[.aos-animate]:scale-100 duration-700 group-hover:!scale-125 object-cover w-full h-full bg-light/20 has-twoColumns" 
+                  style="color:transparent;height:376px" 
+                  src="./images/project/04.jpg" />
+              
+                <!-- content -->
+                <div class="absolute inset-0 z-20 flex justify-center flex-col p-8">
+                  <span class="absolute h-full w-full duration-300 left-0 bottom-0 opacity-0 bg-overlay group-hover:opacity-100 -z-10 pointer-events-none"></span>
+              
+                  <div class="flex items-center justify-between opacity-0 -mt-1 group-hover:opacity-100 group-hover:mt-0 duration-300 group-hover:delay-300">
+              
+                    <!-- category -->
+                    <span class="uppercase text-white bg-white/25 text-sm font-light tracking-wider px-3 py-1 rounded-full backdrop-blur-lg">Time Series Analysis</span>
+              
+                    <!-- link -->
+                    <a class="stretched-link" href="projects/air-quality-forcasting.html">
+                      <img alt="arrow" loading="lazy" width="25" height="22" class="inline-block rotate-[135deg]" src="./images/arrow-right.svg" />
+                    </a>
+                  </div>
+                  <div class="text-center mt-auto">
+                    <h3 class="text-4xl font-secondary font-semibold text-white mb-2 relative overflow-hidden">
+              
+                      <!-- title -->
+                      <span class="block translate-y-full group-hover:translate-y-0 duration-300">Air Quality Forecasting</span>
+                    </h3>
+                    <p class="text-white font-light relative overflow-hidden">
+              
+                      <!-- subtitle -->
+                      <span class="block translate-y-full group-hover:translate-y-0 duration-300 group-hover:delay-150">Utilizing Machine Learning to Predict and Monitor Air Quality Levels</span>
+                    </p>
+                  </div>
+                </div>
+              </div>              
+            </div>
+            <div class="sm:col-6 hidden lg:block">
+              <div data-aos class="rounded-lg overflow-hidden relative group h-full">
+                <!-- overlay -->
+                <span class="absolute h-full group-[.aos-animate]:h-0 w-full z-30 duration-700 left-0 bottom-0" style="background-color:#BF4106;transition-delay:400ms"></span>
+                
+                <!-- image -->
+                <img 
+                  alt="Medical Cost Prediction" 
+                  loading="lazy" 
+                  width="620" 
+                  height="420" 
+                  class="scale-150 group-[.aos-animate]:scale-100 duration-700 group-hover:!scale-125 object-cover w-full h-full bg-light/20 has-twoColumns" 
+                  style="color:transparent;height:376px" 
+                  src="./images/project/05.png" />
+              
+                <!-- content -->
+                <div class="absolute inset-0 z-20 flex justify-center flex-col p-8">
+                  <span class="absolute h-full w-full duration-300 left-0 bottom-0 opacity-0 bg-overlay group-hover:opacity-100 -z-10 pointer-events-none"></span>
+              
+                  <div class="flex items-center justify-between opacity-0 -mt-1 group-hover:opacity-100 group-hover:mt-0 duration-300 group-hover:delay-300">
+              
+                    <!-- category -->
+                    <span class="uppercase text-white bg-white/25 text-sm font-light tracking-wider px-3 py-1 rounded-full backdrop-blur-lg">Healthcare Analytics</span>
+              
+                    <!-- link -->
+                    <a class="stretched-link" href="./projects/Medical-Cost-Prediction.html">
+                      <img alt="arrow" loading="lazy" width="25" height="22" class="inline-block rotate-[135deg]" src="./images/arrow-right.svg" />
+                    </a>
+                  </div>
+                  <div class="text-center mt-auto">
+                    <h3 class="text-4xl font-secondary font-semibold text-white mb-2 relative overflow-hidden">
+              
+                      <!-- title -->
+                      <span class="block translate-y-full group-hover:translate-y-0 duration-300">Medical Cost Prediction</span>
+                    </h3>
+                    <p class="text-white font-light relative overflow-hidden">
+              
+                      <!-- subtitle -->
+                      <span class="block translate-y-full group-hover:translate-y-0 duration-300 group-hover:delay-150">Estimating Individual Medical Expenses Using Multiple Linear Regression</span>
+                    </p>
+                  </div>
+                </div>
+              </div>              
+            </div>
+          </div>
+          <!-- All Projects Button -->
+          <div class="text-center mt-16">
+            <a class="button" href="project.html">
+              <span>All Works</span>
+            </a>
+          </div>
+        </div>
+      </section>
+      <!-- ================= end of recent-works ================= -->
+
+      <!-- ================= start of process ================= -->
+      <section class="pb-28">
+        <div class="container">
+          <div class="row mb-16 items-end">
+            <div class="sm:col-7 order-2 sm:order-1">
+              <!-- Section Title -->
+              <h2 class="text-4xl lg:text-5xl font-secondary font-medium -mt-[6px] text-center sm:text-left">
+                Process Delivers Value
+              </h2>
+            </div>
+            <div class="sm:col-5 order-1 sm:order-2 block mb-4 sm:mb-0 text-center sm:text-right">
+              <!-- Section Subtitle -->
+              <span class="font-secondary text-2xl leading-none text-white/75">The approach</span>
+            </div>
+          </div>
+          <!-- Work Process Items -->
+          <div class="work-process row md:gx-6 gy-6">
+            <!-- Process Item -->
+            <div class="lg:col-4 md:col-6" data-aos="fade-right" data-aos-delay="0">
+              <div class="work-process-item">
+                <!-- Step Number and Title -->
+                <h3 class="text-2xl sm:text-3xl mb-6 flex items-center">
+                  <span class="font-secondary font-medium">01</span>
+                  <span class="font-secondary mx-4 font-thin">—</span>
+                  <span>Strategy</span>
+                </h3>
+                <!-- Step Description -->
+                <div class="text-white/75 font-light md:text-lg">In this phase, we define the objectives and scope of the machine learning or deep learning project. What problem are we solving, and what impact do we aim to achieve?</div>
+              </div>
+            </div>
+
+            <!-- Process Item -->
+            <div class="lg:col-4 md:col-6" data-aos="fade-right" data-aos-delay="100">
+              <div class="work-process-item">
+                <!-- Step Number and Title -->
+                <h3 class="text-2xl sm:text-3xl mb-6 flex items-center">
+                  <span class="font-secondary font-medium">02</span>
+                  <span class="font-secondary mx-4 font-thin">—</span>
+                  <span>Execution</span>
+                </h3>
+                <!-- Step Description -->
+                <div class="text-white/75 font-light md:text-lg">Based on the defined strategy, data collection and preprocessing begin. Models are developed, tested, and validated using iterative cycles to ensure accuracy and reliability.</div>
+              </div>
+            </div>
+
+            <!-- Process Item -->
+            <div class="lg:col-4 md:col-6" data-aos="fade-right" data-aos-delay="200">
+              <div class="work-process-item">
+                <!-- Step Number and Title -->
+                <h3 class="text-2xl sm:text-3xl mb-6 flex items-center">
+                  <span class="font-secondary font-medium">03</span>
+                  <span class="font-secondary mx-4 font-thin">—</span>
+                  <span>Launch</span>
+                </h3>
+                <!-- Step Description -->
+                <div class="text-white/75 font-light md:text-lg">This phase involves deploying the model into production. The model's performance is monitored, and feedback loops are established to continuously improve the solution.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- ================= end of process ================= -->
+
+      <!-- ================= start of blog/posts ================= -->
+      <section class="py-28 bg-white text-dark rounded-b-2xl">
+        <div class="container">
+          <div class="row mb-16 items-end">
+            <div class="sm:col-8 order-2 sm:order-1">
+              <!-- Section Title -->
+              <h2 class="text-black text-4xl lg:text-5xl font-secondary font-medium -mt-[6px] text-center sm:text-left">
+                My weekly thoughts
+              </h2>
+            </div>
+            <div class="sm:col-4 order-1 sm:order-2 block mb-4 sm:mb-0 text-center sm:text-right">
+              <!-- Section Subtitle -->
+              <span class="font-secondary text-2xl leading-none text-black/75">Blog</span>
+            </div>
+          </div>
+          <!-- Blog Posts -->
+          <div class="row md:gx-4 gy-5">
+            <!-- Blog Post 1 -->
+            <div class="lg:col-4 sm:col-6 init-delay" data-aos="fade-up-sm" data-aos-duration="500" style="--lg-delay:0ms;--md-delay:0ms;--sm-delay:0ms">
+              <article class="relative group text-center">
+                <div class="relative overflow-hidden rounded-lg mb-8">
+                  <!-- Blog Post Image -->
+                  <img alt="You have no idea how much better you can feel!" loading="lazy" width="620" height="500" class="duration-700 group-hover:scale-110 group-hover:-rotate-1 object-cover w-full rounded-lg group-hover:brightness-75 bg-light/20" src="./images/blog/01.jpg" />
+                </div>
+                <div class="px-2 sm:px-6 transition-all duration-500 group-hover:opacity-60">
+                  <!-- Blog Post Tags and Date -->
+                  <div class="flex flex-wrap items-center justify-center mb-4 space-x-5">
+                    <span class="inline-block text-sm rounded-full bg-[#efefef] px-3 py-1 capitalize">Academic Skills</span>
+                    <span class="opacity-75 text-sm">2 Sep / 2024</span>
+                  </div>
+                  <!-- Blog Post Title -->
+                  <h3 class="text-xl md:text-2xl leading-tight">
+                    <a class="stretched-link" href="./blogs/Master the Art of Reading Research Papers.html">Master the Art of Reading Research Papers: A Beginner's Guide to the Three-Pass Method</a>
+                  </h3>
+                </div>
+              </article>
+            </div>
+
+            <!-- Blog Post 2 -->
+            <div class="lg:col-4 sm:col-6 init-delay" data-aos="fade-up-sm" data-aos-duration="500" style="--lg-delay:75ms;--md-delay:75ms;--sm-delay:75ms">
+              <article class="relative group text-center">
+                <div class="relative overflow-hidden rounded-lg mb-8">
+                  <!-- Blog Post Image -->
+                  <img alt="The Role of a Developer in Creating Communities" loading="lazy" width="620" height="500" class="duration-700 group-hover:scale-110 group-hover:-rotate-1 object-cover w-full rounded-lg group-hover:brightness-75 bg-light/20" src="./images/blog/09.jpg" />
+                </div>
+                <div class="px-2 sm:px-6 transition-all duration-500 group-hover:opacity-60">
+                  <!-- Blog Post Tags and Date -->
+                  <div class="flex flex-wrap items-center justify-center mb-4 space-x-5">
+                    <span class="inline-block text-sm rounded-full bg-[#efefef] px-3 py-1 capitalize">Artificial Intelligence</span>
+                    <span class="opacity-75 text-sm">29 Jan / 2024</span>
+                  </div>
+                  <!-- Blog Post Title -->
+                  <h3 class="text-xl md:text-2xl leading-tight">
+                    <a class="stretched-link" href="./blogs/The Art of the Prompt Engineering.html">The Art of Prompt Engineering: Unlocking the Potential of Large Language Models</a>
+                  </h3>
+                </div>
+              </article>
+            </div>
+
+            <!-- Blog Post 3 -->
+            <div class="lg:col-4 sm:col-6 init-delay" data-aos="fade-up-sm" data-aos-duration="500" style="--lg-delay:150ms;--md-delay:0ms;--sm-delay:0ms">
+              <article class="relative group text-center">
+                <div class="relative overflow-hidden rounded-lg mb-8">
+                  <!-- Blog Post Image -->
+                  <img alt="Ways to improve usability and accessibility" loading="lazy" width="620" height="500" class="duration-700 group-hover:scale-110 group-hover:-rotate-1 object-cover w-full rounded-lg group-hover:brightness-75 bg-light/20" src="./images/blog/03.jpg" />
+                </div>
+                <div class="px-2 sm:px-6 transition-all duration-500 group-hover:opacity-60">
+                  <!-- Blog Post Tags and Date -->
+                  <div class="flex flex-wrap items-center justify-center mb-4 space-x-5">
+                    <span class="inline-block text-sm rounded-full bg-[#efefef] px-3 py-1 capitalize">Artificial Intelligence</span>
+                    <span class="opacity-75 text-sm">5 Jan / 2025</span>
+                  </div>
+                  <!-- Blog Post Title -->
+                  <h3 class="text-xl md:text-2xl leading-tight">
+                    <a class="stretched-link" href="./blogs/The Neural Network Journey.html">The Neural Network Journey: Understanding Deep Learning from Neurons to Networks</a>
+                  </h3>
+                </div>
+              </article>
+            </div>
+          </div>
+          <!-- All Posts Button -->
+          <div class="text-center mt-16">
+            <a class="button button-dark" href="blog.html">
+              <span>All Posts</span>
+            </a>
+          </div>
+        </div>
+      </section>
+      <!-- ================= end of blog/posts ================= -->
+
+    </main>
+    <!-- end of main -->
+
+    <!-- ================= start of footer ================= -->
+    <footer class="pt-28 pb-20 sticky bottom-0 z-[1]">
+      <div class="mb-16 overflow-hidden">
+        <a class="footer-cta block text-4xl md:text-5xl font-secondary font-medium mb-8" href="contact.html">
+          <!-- Scrolling Line 1 -->
+          <div class="animated-line animated-line-one mb-5">
+            <div class="line-block">
+              <span class="mr-20 md:mr-24">
+                <span class="cta-text">Let’s make something</span>
+                <img alt="arrow-right" loading="lazy" width="39" height="31" class="inline-block ml-10 md:ml-16 cta-icon" src="./images/arrow-right.svg" />
+              </span>
+              <span class="mr-20 md:mr-24">
+                <span class="cta-text">Let’s make something</span>
+                <img alt="arrow-right" loading="lazy" width="39" height="31" class="inline-block ml-10 md:ml-16 cta-icon" src="./images/arrow-right.svg" />
+              </span>
+              <span class="mr-20 md:mr-24">
+                <span class="cta-text">Let’s make something</span>
+                <img alt="arrow-right" loading="lazy" width="39" height="31" class="inline-block ml-10 md:ml-16 cta-icon" src="./images/arrow-right.svg" />
+              </span>
+              <span class="mr-20 md:mr-24">
+                <span class="cta-text">Let’s make something</span>
+                <img alt="arrow-right" loading="lazy" width="39" height="31" class="inline-block ml-10 md:ml-16 cta-icon" src="./images/arrow-right.svg" />
+              </span>
+              <span class="mr-20 md:mr-24">
+                <span class="cta-text">Let’s make something</span>
+                <img alt="arrow-right" loading="lazy" width="39" height="31" class="inline-block ml-10 md:ml-16 cta-icon" src="./images/arrow-right.svg" />
+              </span>
+            </div>
+            <div class="line-block-copy">
+              <span class="mr-20 md:mr-24">
+                <span class="cta-text">Let’s make something</span>
+                <img alt="arrow-right" loading="lazy" width="39" height="31" class="inline-block ml-10 md:ml-16 cta-icon" src="./images/arrow-right.svg" />
+              </span>
+              <span class="mr-20 md:mr-24">
+                <span class="cta-text">Let’s make something</span>
+                <img alt="arrow-right" loading="lazy" width="39" height="31" class="inline-block ml-10 md:ml-16 cta-icon" src="./images/arrow-right.svg" />
+              </span>
+              <span class="mr-20 md:mr-24">
+                <span class="cta-text">Let’s make something</span>
+                <img alt="arrow-right" loading="lazy" width="39" height="31" class="inline-block ml-10 md:ml-16 cta-icon" src="./images/arrow-right.svg" />
+              </span>
+              <span class="mr-20 md:mr-24">
+                <span class="cta-text">Let’s make something</span>
+                <img alt="arrow-right" loading="lazy" width="39" height="31" class="inline-block ml-10 md:ml-16 cta-icon" src="./images/arrow-right.svg" />
+              </span>
+              <span class="mr-20 md:mr-24">
+                <span class="cta-text">Let’s make something</span>
+                <img alt="arrow-right" loading="lazy" width="39" height="31" class="inline-block ml-10 md:ml-16 cta-icon" src="./images/arrow-right.svg" />
+              </span>
+            </div>
+          </div>
+          <!-- Scrolling Line 2 -->
+          <div class="animated-line animated-line-two">
+            <div class="line-block">
+              <span class="mr-20 md:mr-24">
+                <span class="cta-text">Let’s make something</span>
+                <img alt="arrow-right" loading="lazy" width="39" height="31" class="inline-block ml-10 md:ml-16 cta-icon" src="./images/arrow-right.svg" />
+              </span>
+              <span class="mr-20 md:mr-24">
+                <span class="cta-text">Let’s make something</span>
+                <img alt="arrow-right" loading="lazy" width="39" height="31" class="inline-block ml-10 md:ml-16 cta-icon" src="./images/arrow-right.svg" />
+              </span>
+              <span class="mr-20 md:mr-24">
+                <span class="cta-text">Let’s make something</span>
+                <img alt="arrow-right" loading="lazy" width="39" height="31" class="inline-block ml-10 md:ml-16 cta-icon" src="./images/arrow-right.svg" />
+              </span>
+              <span class="mr-20 md:mr-24">
+                <span class="cta-text">Let’s make something</span>
+                <img alt="arrow-right" loading="lazy" width="39" height="31" class="inline-block ml-10 md:ml-16 cta-icon" src="./images/arrow-right.svg" />
+              </span>
+              <span class="mr-20 md:mr-24">
+                <span class="cta-text">Let’s make something</span>
+                <img alt="arrow-right" loading="lazy" width="39" height="31" class="inline-block ml-10 md:ml-16 cta-icon" src="./images/arrow-right.svg" />
+              </span>
+            </div>
+            <div class="line-block-copy">
+              <span class="mr-20 md:mr-24">
+                <span class="cta-text">Let’s make something</span>
+                <img alt="arrow-right" loading="lazy" width="39" height="31" class="inline-block ml-10 md:ml-16 cta-icon" src="./images/arrow-right.svg" />
+              </span>
+              <span class="mr-20 md:mr-24">
+                <span class="cta-text">Let’s make something</span>
+                <img alt="arrow-right" loading="lazy" width="39" height="31" class="inline-block ml-10 md:ml-16 cta-icon" src="./images/arrow-right.svg" />
+              </span>
+              <span class="mr-20 md:mr-24">
+                <span class="cta-text">Let’s make something</span>
+                <img alt="arrow-right" loading="lazy" width="39" height="31" class="inline-block ml-10 md:ml-16 cta-icon" src="./images/arrow-right.svg" />
+              </span>
+              <span class="mr-20 md:mr-24">
+                <span class="cta-text">Let’s make something</span>
+                <img alt="arrow-right" loading="lazy" width="39" height="31" class="inline-block ml-10 md:ml-16 cta-icon" src="./images/arrow-right.svg" />
+              </span>
+              <span class="mr-20 md:mr-24">
+                <span class="cta-text">Let’s make something</span>
+                <img alt="arrow-right" loading="lazy" width="39" height="31" class="inline-block ml-10 md:ml-16 cta-icon" src="./images/arrow-right.svg" />
+              </span>
+            </div>
+          </div>
+        </a>
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="md:col-6 text-center md:text-left mb-4">
+            <!-- Social Links -->
+            <ul class="inline-flex flex-wrap justify-center md:justify-start gap-x-6">
+              <li class="inline-block hover:opacity-75 transition-op duration-300">
+                <a href="https://instagram.com/amangupta.143" class="link" target="_blank">Instagram</a>
+              </li>
+              <li class="inline-block hover:opacity-75 transition-op duration-300">
+                <a href="https://x.com/aman_gupta_143" class="link" target="_blank">Twitter</a>
+              </li>
+              <li class="inline-block hover:opacity-75 transition-op duration-300">
+                <a href="https://linkedin.com/in/amangupta143" class="link" target="_blank">Linkedin</a>
+              </li>
+              <li class="inline-block hover:opacity-75 transition-op duration-300">
+                <a href="https://github.com/amangupta143" class="link" target="_blank">Github</a>
+              </li>
+            </ul>
+          </div>
+          <div class="md:col-6 text-center md:text-right mb-4">
+            <!-- Footer Menu -->
+            <ul class="inline-flex flex-wrap justify-center md:justify-end gap-x-6">
+              <li class="inline-block hover:opacity-75 transition-op duration-300">
+                <a href="https://drive.google.com/file/d/1w6EG9Yrbs1V2d521ANwp7TFMZZ3nPyqS/view" class="link" target="_blank">Download Resume</a>
+              </li>
+            </ul>
+          </div>
+          <!-- Copyright -->
+          <div class="md:col-6 text-center md:text-left mb-4 md:mb-0">
+            <p class="text-white/75">© 2025 Aman. All rights reserved.</p> 
+          </div>
+          <!-- Developer Info -->
+          <div class="md:col-6 text-center md:text-right">
+            <p class="text-white/75">😊 Thank you for visiting!</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- ================= end of footer ================= -->
+
+    <!-- start of script -->
+    <script src="./plugins/aos/aos.js"></script>
+    <script src="./scripts/main.js"></script>
+  </body>
 </html>

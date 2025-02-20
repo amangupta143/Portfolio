@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charSet="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <title>Contact - Aman Gupta</title>
+    
+    <meta name="author" content="Platol" />
+    <meta name="description" content="TailwindCSS Personal Portfolio Template" />
+    <meta property="og:title" content="Aver - TailwindCSS Personal Portfolio Template" />
+    <meta property="og:description" content="TailwindCSS Personal Portfolio Template" />
+    <meta property="og:image" content="./images/ogimage.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
+    <meta name="twitter:title" content="Aver - TailwindCSS Personal Portfolio Template" />
+    <meta name="twitter:image" content="./images/ogimage.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:description" content="TailwindCSS Personal Portfolio Template" />
+    
+    <link rel="shortcut icon" href="./images/favicon.png" type="image/x-icon" />
+    
+    <link rel="stylesheet" href="./plugins/aos/aos.css">
+    <link rel="stylesheet" href="./plugins/swiper/swiper-bundle.min.css">
+    <link rel="stylesheet" href="./styles/output.css">
+    <link rel="stylesheet" href="./styles/hover.css">
+  </head>
+
+  <body>
+     <!-- start of header -->
+     <header class="fixed top-0 z-[9000] w-full header [&.invisible]:-translate-y-full">
+      <div class="container">
+        <div class="flex justify-between py-6 items-center relative">
+          <!-- logo -->
+          <div class="hideOnScroll lg:[&.scrolled]:opacity-0 lg:[&.scrolled]:-translate-x-8 w-1/4 transition-all duration-300">
+            <a class="inline-block align-middle" href="./index.html">
+              <img alt="Aver" width="80" height="29" src="./images/logo.svg" />
+            </a>
+          </div>
+
+          <!-- navbar -->
+          <nav class="navbar">
+            <span class="indicator"></span>
+            <a href="./index.html">Home</a>
+            <a href="./about.html">About</a>
+            <a href="./project.html">Project</a>
+            <a href="./blog.html">Blog</a>
+            <a class="active" href="./contact.html">Contact</a>
+          </nav>
+          <div class="navOverlay"></div>
+
+          <!-- toggle mobile-nav -->
+          <button type="button" aria-label="Toggle Mobile Navigation" class="navToggler">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+              <path d="M4 8l16 0"></path>
+              <path d="M4 16l16 0"></path>
+            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+              <path d="M18 6l-12 12"></path>
+              <path d="M6 6l12 12"></path>
+            </svg>
+          </button>
+
+          <!-- social links -->
+          <div class="hideOnScroll lg:[&.scrolled]:opacity-0 lg:[&.scrolled]:translate-x-8 w-1/4 transition-all duration-300 text-right text-sm hidden lg:block">
+            <!-- <span class="block text-white/75 mb-1">Follow me on:</span> -->
+            <ul class="inline-flex gap-x-4 items-center">
+              <li class="inline-block hover:opacity-75 transition-op duration-300">
+                <a href="https://leetcode.com/amangupta_143" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LeetCode">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M13.483 0a1.374 1.374 0 0 0-.961.438L7.116 6.226l-3.854 4.126a5.266 5.266 0 0 0-1.209 2.104 5.35 5.35 0 0 0-.125.513 5.527 5.527 0 0 0 .062 2.362 5.83 5.83 0 0 0 .349 1.017 5.938 5.938 0 0 0 1.271 1.818l4.277 4.193.039.038c2.248 2.165 5.852 2.133 8.063-.074l2.396-2.392c.54-.54.54-1.414.003-1.955a1.378 1.378 0 0 0-1.951-.003l-2.396 2.392a3.021 3.021 0 0 1-4.205.038l-.02-.019-4.276-4.193c-.652-.64-.972-1.469-.948-2.263a2.68 2.68 0 0 1 .066-.523 2.545 2.545 0 0 1 .619-1.164L9.13 8.114c1.058-1.134 3.204-1.27 4.43-.278l3.501 2.831c.593.48 1.461.387 1.94-.207a1.384 1.384 0 0 0-.207-1.943l-3.5-2.831c-.8-.647-1.766-1.045-2.774-1.202l2.015-2.158A1.384 1.384 0 0 0 13.483 0zm-2.866 12.815a1.38 1.38 0 0 0-1.38 1.382 1.38 1.38 0 0 0 1.38 1.382H20.79a1.38 1.38 0 0 0 1.38-1.382 1.38 1.38 0 0 0-1.38-1.382z"/>
+                  </svg>
+                </a>
+              </li>
+              <!-- LinkedIn Icon -->
+              <li class="inline-block hover:opacity-75 transition-op duration-300">
+                <a href="https://www.linkedin.com/in/amangupta143" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19a.66.66 0 000 .14V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66z"></path>
+                  </svg>
+                </a>
+              </li>
+              <!-- GitHub Icon -->
+              <li class="inline-block hover:opacity-75 transition-op duration-300">
+                <a href="https://github.com/amangupta143" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="GitHub">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.17 6.839 9.49.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.464-1.11-1.464-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.699 1.026 1.591 1.026 2.682 0 3.841-2.337 4.687-4.565 4.935.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12c0-5.523-4.477-10-10-10z"></path>
+                  </svg>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </header>
+    <!-- end of header -->
+
+    <!-- start of main -->
+    <main class="bg-dark relative z-10 pt-[92px] lg:pt-[106px] min-h-[82vh] overflow-hidden">
+      
+      <!-- ================= start of page-header ================= -->
+      <section class="banner bg-white">
+        <div class="pt-20 pb-24 page-banner bg-dark rounded-b-2xl relative z-10">
+          <div class="container">
+            <div class="row items-end" data-aos="fade">
+              <div class="sm:col-8 text-center sm:text-left">
+                <h1 class="text-[2.5rem] leading-[3rem] sm:leading-9 md:text-5xl font-secondary font-medium -mt-[6px] text-center sm:text-left mb-6 sm:mb-8">Contact</h1>
+                <nav aria-label="breadcrumb">
+                  <ul class="flex items-center justify-center sm:justify-start [&>*:last-child]:pointer-events-none">
+                    <li>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" class="mr-3" style="transform:rotateY(180deg)">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                        <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2"></path>
+                        <path d="M19 12h2l-9 -9l-9 9h2v7a2 2 0 0 0 2 2h5.5"></path>
+                        <path d="M16 19h6"></path>
+                        <path d="M19 16l3 3l-3 3"></path>
+                      </svg>
+                    </li>
+                    <li>
+                      <a class="link" href="./index.html">Home</a>
+                    </li>
+                    <li><span class="px-4">•</span></li>
+                    <li>
+                      <a class="link" href="./index.html">Contact</a>
+                    </li>
+                  </ul>
+                </nav>
+              </div>
+              <div class="sm:col-4 block mt-6 sm:mt-0 text-center sm:text-right">
+                <span class="font-secondary text-2xl leading-none text-white/75">Let's Talk</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- ================= end of page-header ================= -->
+
+      <!-- ================= start of contact ================= -->
+      <section class="py-28 bg-white text-dark rounded-b-2xl">
+        <div class="container">
+          <div class="row justify-center">
+            <div class="md:col-10 lg:col-5 mb-24 lg:mb-0" data-aos="fade-up-sm">
+              <div class="mb-10">
+                <!-- contact title -->
+                <h2 class="text-3xl font-medium mb-3 -mt-[6px]">It's all starts with hello..</h2>
+              </div>
+
+              <!-- contact form -->
+              <form class="contact-form pr-0 lg:pr-8" id="contact-form">
+                <div class="mb-6">
+                  <label for="full_name" class="block mb-2 text-black">Name</label>
+                  <input type="text" id="full_name" name="full_name" placeholder="Your name here" class="border border-light/90 rounded-lg bg-white h-12 w-full px-4 py-4 focus:border-dark/50 outline-none focus-visible:outline-none focus-visible:shadow-none transition-all duration-300" required />
+                </div>
+                <div class="mb-6">
+                  <label for="email" class="block mb-2 text-black">Contact email</label>
+                  <input type="email" id="email" name="email" placeholder="your.name@email.app" class="border border-light/90 rounded-lg bg-white h-12 w-full px-4 py-4 focus:border-dark/50 outline-none focus-visible:outline-none focus-visible:shadow-none transition-all duration-300" required />
+                </div>
+                <div class="mb-6">
+                  <label for="message" class="block mb-2 text-black">Additional info</label>
+                  <textarea id="message" name="message" rows="4" class="border border-light/90 rounded-lg bg-white w-full px-4 py-4 focus:border-dark/50 outline-none focus-visible:outline-none focus-visible:shadow-none transition-all duration-300" placeholder="Be as detailed as possible..." required></textarea>
+                </div>
+              
+                <div class="mb-6 status hidden"></div>
+              
+                <button class="button button-dark mt-2" title="Send your Message" type="submit" aria-label="Send Message">
+                  <span>Send Message</span>
+                </button>
+              </form>
+            </div>
+
+            <!-- start of faq -->
+            <div class="md:col-10 lg:col-5" data-aos="fade-up-sm" data-aos-delay="100">
+              <div class="pl-0 lg:pl-8">
+                <div class="mb-10">
+                  <!-- faq title -->
+                  <h2 class="text-3xl font-medium mb-3 -mt-[6px]">Frequently asked questions</h2>
+                  <!-- faq subtitle -->
+                  <p class="text-black/75">Here are the answers to the most common questions.</p>
+                </div>
+
+                <!-- faq item -->
+                <div class="faq-item border-t border-b">
+                  <h3 class="faq-item-header text-lg font-medium py-5 cursor-pointer flex justify-between items-center select-none" role="button" tabindex="0">
+                    <span class="grow">What services do you offer?</span>
+                    <span class="shrink-0">
+                      <svg class="inline-block" xmlns="http://www.w3.org/2000/svg" height="0.9em" viewBox="0 0 448 512"><path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z" fill="currentColor"></path></svg>
+                      <svg class="hidden" xmlns="http://www.w3.org/2000/svg" height="0.9em" viewBox="0 0 448 512"><path d="M432 256c0 17.7-14.3 32-32 32L48 288c-17.7 0-32-14.3-32-32s14.3-32 32-32l352 0c17.7 0 32 14.3 32 32z" fill="currentColor" /></svg>
+                    </span>
+                  </h3>
+                  <div class="faq-item-content hidden text-black/75 leading-normal overflow-hidden" style="transition:max-height 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94)">
+                    <div class="-mt-[6px] mb-5 content content-dark">
+                      <p>I offer machine learning model development, data analysis, algorithm design, integration and deployment, and consultation and training.</p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- faq item -->
+                <div class="faq-item border-b">
+                  <h3 class="faq-item-header text-lg font-medium py-5 cursor-pointer flex justify-between items-center select-none" role="button" tabindex="0">
+                    <span class="grow">What industries do you specialize in?</span>
+                    <span class="shrink-0">
+                      <svg class="inline-block" xmlns="http://www.w3.org/2000/svg" height="0.9em" viewBox="0 0 448 512"><path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z" fill="currentColor"></path></svg>
+                      <svg class="hidden" xmlns="http://www.w3.org/2000/svg" height="0.9em" viewBox="0 0 448 512"><path d="M432 256c0 17.7-14.3 32-32 32L48 288c-17.7 0-32-14.3-32-32s14.3-32 32-32l352 0c17.7 0 32 14.3 32 32z" fill="currentColor" /></svg>
+                    </span>
+                  </h3>
+                  <div class="faq-item-content hidden text-black/75 leading-normal overflow-hidden" style="transition:max-height 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94)">
+                    <div class="-mt-[6px] mb-5 content content-dark">
+                      <p>I specialize in healthcare, finance, e-commerce, and technology sectors.</p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- faq item -->
+                <div class="faq-item border-b">
+                  <h3 class="faq-item-header text-lg font-medium py-5 cursor-pointer flex justify-between items-center select-none" role="button" tabindex="0">
+                    <span class="grow">Do you provide project consultations?</span>
+                    <span class="shrink-0">
+                      <svg class="inline-block" xmlns="http://www.w3.org/2000/svg" height="0.9em" viewBox="0 0 448 512"><path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z" fill="currentColor"></path></svg>
+                      <svg class="hidden" xmlns="http://www.w3.org/2000/svg" height="0.9em" viewBox="0 0 448 512"><path d="M432 256c0 17.7-14.3 32-32 32L48 288c-17.7 0-32-14.3-32-32s14.3-32 32-32l352 0c17.7 0 32 14.3 32 32z" fill="currentColor" /></svg>
+                    </span>
+                  </h3>
+                  <div class="faq-item-content hidden text-black/75 leading-normal overflow-hidden" style="transition:max-height 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94)">
+                    <div class="-mt-[6px] mb-5 content content-dark">
+                      <p>Yes, I offer expert consultations to help you leverage advanced technologies effectively.</p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- faq item -->
+                <div class="faq-item border-b">
+                  <h3 class="faq-item-header text-lg font-medium py-5 cursor-pointer flex justify-between items-center select-none" role="button" tabindex="0">
+                    <span class="grow">Can you customize solutions for specific needs?</span>
+                    <span class="shrink-0">
+                      <svg class="inline-block" xmlns="http://www.w3.org/2000/svg" height="0.9em" viewBox="0 0 448 512"><path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z" fill="currentColor"></path></svg>
+                      <svg class="hidden" xmlns="http://www.w3.org/2000/svg" height="0.9em" viewBox="0 0 448 512"><path d="M432 256c0 17.7-14.3 32-32 32L48 288c-17.7 0-32-14.3-32-32s14.3-32 32-32l352 0c17.7 0 32 14.3 32 32z" fill="currentColor" /></svg>
+                    </span>
+                  </h3>
+                  <div class="faq-item-content hidden text-black/75 leading-normal overflow-hidden" style="transition:max-height 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94)">
+                    <div class="-mt-[6px] mb-5 content content-dark">
+                      <p>Absolutely! I tailor my services to fit your unique business requirements.</p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- faq item -->
+                <div class="faq-item border-b">
+                  <h3 class="faq-item-header text-lg font-medium py-5 cursor-pointer flex justify-between items-center select-none" role="button" tabindex="0">
+                    <span class="grow">How long does it take to complete a project?</span>
+                    <span class="shrink-0">
+                      <svg class="inline-block" xmlns="http://www.w3.org/2000/svg" height="0.9em" viewBox="0 0 448 512"><path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z" fill="currentColor"></path></svg>
+                      <svg class="hidden" xmlns="http://www.w3.org/2000/svg" height="0.9em" viewBox="0 0 448 512"><path d="M432 256c0 17.7-14.3 32-32 32L48 288c-17.7 0-32-14.3-32-32s14.3-32 32-32l352 0c17.7 0 32 14.3 32 32z" fill="currentColor" /></svg>
+                    </span>
+                  </h3>
+                  <div class="faq-item-content hidden text-black/75 leading-normal overflow-hidden" style="transition:max-height 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94)">
+                    <div class="-mt-[6px] mb-5 content content-dark">
+                      <p>The timeline varies based on the project's complexity, but I always strive for efficient and timely delivery.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- end of faq -->
+          </div>
+        </div>
+      </section>
+      <!-- ================= end of contact ================= -->
+
+    </main>
+    <!-- end of main -->
+
+    <!-- ================= start of footer ================= -->
+    <footer class="pt-28 pb-20 sticky bottom-0 z-[1]">
+      <div class="mb-16 overflow-hidden">
+        <a class="footer-cta block text-4xl md:text-5xl font-secondary font-medium mb-8" href="contact.html">
+          <!-- Scrolling Line 1 -->
+          <div class="animated-line animated-line-one mb-5">
+            <div class="line-block">
+              <span class="mr-20 md:mr-24">
+                <span class="cta-text">Let’s make something</span>
+                <img alt="arrow-right" loading="lazy" width="39" height="31" class="inline-block ml-10 md:ml-16 cta-icon" src="./images/arrow-right.svg" />
+              </span>
+              <span class="mr-20 md:mr-24">
+                <span class="cta-text">Let’s make something</span>
+                <img alt="arrow-right" loading="lazy" width="39" height="31" class="inline-block ml-10 md:ml-16 cta-icon" src="./images/arrow-right.svg" />
+              </span>
+              <span class="mr-20 md:mr-24">
+                <span class="cta-text">Let’s make something</span>
+                <img alt="arrow-right" loading="lazy" width="39" height="31" class="inline-block ml-10 md:ml-16 cta-icon" src="./images/arrow-right.svg" />
+              </span>
+              <span class="mr-20 md:mr-24">
+                <span class="cta-text">Let’s make something</span>
+                <img alt="arrow-right" loading="lazy" width="39" height="31" class="inline-block ml-10 md:ml-16 cta-icon" src="./images/arrow-right.svg" />
+              </span>
+              <span class="mr-20 md:mr-24">
+                <span class="cta-text">Let’s make something</span>
+                <img alt="arrow-right" loading="lazy" width="39" height="31" class="inline-block ml-10 md:ml-16 cta-icon" src="./images/arrow-right.svg" />
+              </span>
+            </div>
+            <div class="line-block-copy">
+              <span class="mr-20 md:mr-24">
+                <span class="cta-text">Let’s make something</span>
+                <img alt="arrow-right" loading="lazy" width="39" height="31" class="inline-block ml-10 md:ml-16 cta-icon" src="./images/arrow-right.svg" />
+              </span>
+              <span class="mr-20 md:mr-24">
+                <span class="cta-text">Let’s make something</span>
+                <img alt="arrow-right" loading="lazy" width="39" height="31" class="inline-block ml-10 md:ml-16 cta-icon" src="./images/arrow-right.svg" />
+              </span>
+              <span class="mr-20 md:mr-24">
+                <span class="cta-text">Let’s make something</span>
+                <img alt="arrow-right" loading="lazy" width="39" height="31" class="inline-block ml-10 md:ml-16 cta-icon" src="./images/arrow-right.svg" />
+              </span>
+              <span class="mr-20 md:mr-24">
+                <span class="cta-text">Let’s make something</span>
+                <img alt="arrow-right" loading="lazy" width="39" height="31" class="inline-block ml-10 md:ml-16 cta-icon" src="./images/arrow-right.svg" />
+              </span>
+              <span class="mr-20 md:mr-24">
+                <span class="cta-text">Let’s make something</span>
+                <img alt="arrow-right" loading="lazy" width="39" height="31" class="inline-block ml-10 md:ml-16 cta-icon" src="./images/arrow-right.svg" />
+              </span>
+            </div>
+          </div>
+          <!-- Scrolling Line 2 -->
+          <div class="animated-line animated-line-two">
+            <div class="line-block">
+              <span class="mr-20 md:mr-24">
+                <span class="cta-text">Let’s make something</span>
+                <img alt="arrow-right" loading="lazy" width="39" height="31" class="inline-block ml-10 md:ml-16 cta-icon" src="./images/arrow-right.svg" />
+              </span>
+              <span class="mr-20 md:mr-24">
+                <span class="cta-text">Let’s make something</span>
+                <img alt="arrow-right" loading="lazy" width="39" height="31" class="inline-block ml-10 md:ml-16 cta-icon" src="./images/arrow-right.svg" />
+              </span>
+              <span class="mr-20 md:mr-24">
+                <span class="cta-text">Let’s make something</span>
+                <img alt="arrow-right" loading="lazy" width="39" height="31" class="inline-block ml-10 md:ml-16 cta-icon" src="./images/arrow-right.svg" />
+              </span>
+              <span class="mr-20 md:mr-24">
+                <span class="cta-text">Let’s make something</span>
+                <img alt="arrow-right" loading="lazy" width="39" height="31" class="inline-block ml-10 md:ml-16 cta-icon" src="./images/arrow-right.svg" />
+              </span>
+              <span class="mr-20 md:mr-24">
+                <span class="cta-text">Let’s make something</span>
+                <img alt="arrow-right" loading="lazy" width="39" height="31" class="inline-block ml-10 md:ml-16 cta-icon" src="./images/arrow-right.svg" />
+              </span>
+            </div>
+            <div class="line-block-copy">
+              <span class="mr-20 md:mr-24">
+                <span class="cta-text">Let’s make something</span>
+                <img alt="arrow-right" loading="lazy" width="39" height="31" class="inline-block ml-10 md:ml-16 cta-icon" src="./images/arrow-right.svg" />
+              </span>
+              <span class="mr-20 md:mr-24">
+                <span class="cta-text">Let’s make something</span>
+                <img alt="arrow-right" loading="lazy" width="39" height="31" class="inline-block ml-10 md:ml-16 cta-icon" src="./images/arrow-right.svg" />
+              </span>
+              <span class="mr-20 md:mr-24">
+                <span class="cta-text">Let’s make something</span>
+                <img alt="arrow-right" loading="lazy" width="39" height="31" class="inline-block ml-10 md:ml-16 cta-icon" src="./images/arrow-right.svg" />
+              </span>
+              <span class="mr-20 md:mr-24">
+                <span class="cta-text">Let’s make something</span>
+                <img alt="arrow-right" loading="lazy" width="39" height="31" class="inline-block ml-10 md:ml-16 cta-icon" src="./images/arrow-right.svg" />
+              </span>
+              <span class="mr-20 md:mr-24">
+                <span class="cta-text">Let’s make something</span>
+                <img alt="arrow-right" loading="lazy" width="39" height="31" class="inline-block ml-10 md:ml-16 cta-icon" src="./images/arrow-right.svg" />
+              </span>
+            </div>
+          </div>
+        </a>
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="md:col-6 text-center md:text-left mb-4">
+            <!-- Social Links -->
+            <ul class="inline-flex flex-wrap justify-center md:justify-start gap-x-6">
+              <li class="inline-block hover:opacity-75 transition-op duration-300">
+                <a href="https://instagram.com/amangupta.143" class="link" target="_blank">Instagram</a>
+              </li>
+              <li class="inline-block hover:opacity-75 transition-op duration-300">
+                <a href="https://x.com/aman_gupta_143" class="link" target="_blank">Twitter</a>
+              </li>
+              <li class="inline-block hover:opacity-75 transition-op duration-300">
+                <a href="https://linkedin.com/in/amangupta143" class="link" target="_blank">Linkedin</a>
+              </li>
+              <li class="inline-block hover:opacity-75 transition-op duration-300">
+                <a href="https://github.com/amangupta143" class="link" target="_blank">Github</a>
+              </li>
+            </ul>
+          </div>
+          <div class="md:col-6 text-center md:text-right mb-4">
+            <!-- Footer Menu -->
+            <ul class="inline-flex flex-wrap justify-center md:justify-end gap-x-6">
+              <li class="inline-block hover:opacity-75 transition-op duration-300">
+                <a href="https://drive.google.com/file/d/1w6EG9Yrbs1V2d521ANwp7TFMZZ3nPyqS/view" class="link" target="_blank">Download Resume</a>
+              </li>
+            </ul>
+          </div>
+          <!-- Copyright -->
+          <div class="md:col-6 text-center md:text-left mb-4 md:mb-0">
+            <p class="text-white/75">© 2025 Aman. All rights reserved.</p> 
+          </div>
+          <!-- Developer Info -->
+          <div class="md:col-6 text-center md:text-right">
+            <p class="text-white/75">😊 Thank you for visiting!</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- ================= end of footer ================= -->
+
+    <!-- start of script -->
+    <script src="./plugins/aos/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script src="./scripts/main.js"></script>
+  </body>
+</html>
