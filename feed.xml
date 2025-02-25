@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Aman Gupta's Portfolio</title>
+    <description>Updates from Aman Gupta's portfolio including latest blog posts and projects</description>
+    <link>https://amangupta143.github.io/Portfolio/</link>
+    <atom:link href="https://amangupta143.github.io/Portfolio/feed.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language>
+    <lastBuildDate>Tue, 25 Feb 2025 12:00:00 GMT</lastBuildDate>
+    <generator>Manual</generator>
+    
+    <!-- Blog Posts -->
+    <item>
+      <title>The Art of Prompt Engineering</title>
+      <link>https://amangupta143.github.io/Portfolio/blogs/The%20Art%20of%20the%20Prompt%20Engineering.html</link>
+      <pubDate>Tue, 25 Feb 2025 00:00:00 GMT</pubDate>
+      <guid>https://amangupta143.github.io/Portfolio/blogs/The%20Art%20of%20the%20Prompt%20Engineering.html</guid>
+      <description>Exploring the techniques and strategies for effective prompt engineering with AI language models.</description>
+      <category>AI</category>
+      <category>Prompt Engineering</category>
+    </item>
+    
+    <item>
+      <title>Computer Vision Unveiled</title>
+      <link>https://amangupta143.github.io/Portfolio/blogs/Computer%20Vision%20Unveiled.html</link>
+      <pubDate>Mon, 24 Feb 2025 00:00:00 GMT</pubDate>
+      <guid>https://amangupta143.github.io/Portfolio/blogs/Computer%20Vision%20Unveiled.html</guid>
+      <description>An exploration of computer vision technologies, applications, and future directions.</description>
+      <category>Computer Vision</category>
+      <category>AI</category>
+    </item>
+    
+    <item>
+      <title>The Neural Network Journey</title>
+      <link>https://amangupta143.github.io/Portfolio/blogs/The%20Neural%20Network%20Journey.html</link>
+      <pubDate>Fri, 21 Feb 2025 00:00:00 GMT</pubDate>
+      <guid>https://amangupta143.github.io/Portfolio/blogs/The%20Neural%20Network%20Journey.html</guid>
+      <description>A comprehensive look at the evolution and applications of neural networks in modern AI.</description>
+      <category>Neural Networks</category>
+      <category>Deep Learning</category>
+    </item>
+    
+    <item>
+      <title>Ethical AI Development</title>
+      <link>https://amangupta143.github.io/Portfolio/blogs/Ethical%20AI%20Development.html</link>
+      <pubDate>Wed, 19 Feb 2025 00:00:00 GMT</pubDate>
+      <guid>https://amangupta143.github.io/Portfolio/blogs/Ethical%20AI%20Development.html</guid>
+      <description>Discussing the ethical considerations and frameworks for responsible AI development.</description>
+      <category>AI Ethics</category>
+      <category>Responsible AI</category>
+    </item>
+    
+    <item>
+      <title>Master the Art of Reading Research Papers</title>
+      <link>https://amangupta143.github.io/Portfolio/blogs/Master%20the%20Art%20of%20Reading%20Research%20Papers.html</link>
+      <pubDate>Mon, 17 Feb 2025 00:00:00 GMT</pubDate>
+      <guid>https://amangupta143.github.io/Portfolio/blogs/Master%20the%20Art%20of%20Reading%20Research%20Papers.html</guid>
+      <description>Tips and strategies for effectively reading and understanding academic research papers in machine learning and AI.</description>
+      <category>Research</category>
+      <category>Academic Skills</category>
+    </item>
+    
+    <item>
+      <title>The Art of Feature Engineering</title>
+      <link>https://amangupta143.github.io/Portfolio/blogs/The%20Art%20of%20Feature%20Engineering.html</link>
+      <pubDate>Fri, 14 Feb 2025 00:00:00 GMT</pubDate>
+      <guid>https://amangupta143.github.io/Portfolio/blogs/The%20Art%20of%20Feature%20Engineering.html</guid>
+      <description>A deep dive into feature engineering techniques that can dramatically improve machine learning model performance.</description>
+      <category>Machine Learning</category>
+      <category>Feature Engineering</category>
+    </item>
+    
+    <!-- Projects -->
+    <item>
+      <title>Sign Language Recognition System</title>
+      <link>https://amangupta143.github.io/Portfolio/projects/Sign-Language-Recognition-System.html</link>
+      <pubDate>Tue, 25 Feb 2025 00:00:00 GMT</pubDate>
+      <guid>https://amangupta143.github.io/Portfolio/projects/Sign-Language-Recognition-System.html</guid>
+      <description>A computer vision system that recognizes and interprets sign language gestures in real-time.</description>
+      <category>Computer Vision</category>
+      <category>Accessibility</category>
+    </item>
+    
+    <item>
+      <title>Air Quality Forecasting</title>
+      <link>https://amangupta143.github.io/Portfolio/projects/air-quality-forcasting.html</link>
+      <pubDate>Mon, 24 Feb 2025 00:00:00 GMT</pubDate>
+      <guid>https://amangupta143.github.io/Portfolio/projects/air-quality-forcasting.html</guid>
+      <description>A time-series forecasting project to predict air quality index based on historical data and environmental factors.</description>
+      <category>Time Series</category>
+      <category>Environmental Data</category>
+    </item>
+    
+    <item>
+      <title>Diabetes Prediction</title>
+      <link>https://amangupta143.github.io/Portfolio/projects/project-diabetes.html</link>
+      <pubDate>Fri, 21 Feb 2025 00:00:00 GMT</pubDate>
+      <guid>https://amangupta143.github.io/Portfolio/projects/project-diabetes.html</guid>
+      <description>A machine learning model to predict diabetes risk based on health markers and patient data.</description>
+      <category>Healthcare</category>
+      <category>Classification</category>
+    </item>
+    
+    <item>
+      <title>Student Performance Prediction</title>
+      <link>https://amangupta143.github.io/Portfolio/projects/student-performance-prediction.html</link>
+      <pubDate>Wed, 19 Feb 2025 00:00:00 GMT</pubDate>
+      <guid>https://amangupta143.github.io/Portfolio/projects/student-performance-prediction.html</guid>
+      <description>An educational data mining project to predict student academic performance based on various factors.</description>
+      <category>Education</category>
+      <category>Regression</category>
+    </item>
+    
+    <item>
+      <title>Medical Cost Prediction</title>
+      <link>https://amangupta143.github.io/Portfolio/projects/Medical-Cost-Prediction.html</link>
+      <pubDate>Mon, 17 Feb 2025 00:00:00 GMT</pubDate>
+      <guid>https://amangupta143.github.io/Portfolio/projects/Medical-Cost-Prediction.html</guid>
+      <description>A regression model to predict healthcare costs based on patient demographics and health conditions.</description>
+      <category>Healthcare</category>
+      <category>Regression</category>
+    </item>
+    
+    <item>
+      <title>BigMart Sales Prediction</title>
+      <link>https://amangupta143.github.io/Portfolio/projects/BigMart-Sales-Prediction.html</link>
+      <pubDate>Fri, 14 Feb 2025 00:00:00 GMT</pubDate>
+      <guid>https://amangupta143.github.io/Portfolio/projects/BigMart-Sales-Prediction.html</guid>
+      <description>A retail analytics project to predict sales volume for products across different stores.</description>
+      <category>Retail</category>
+      <category>Sales Prediction</category>
+    </item>
+    
+    <item>
+      <title>Password Generator</title>
+      <link>https://amangupta143.github.io/Portfolio/projects/Password-Generator.html</link>
+      <pubDate>Mon, 10 Feb 2025 00:00:00 GMT</pubDate>
+      <guid>https://amangupta143.github.io/Portfolio/projects/Password-Generator.html</guid>
+      <description>A tool to generate secure, customizable passwords based on user preferences and security requirements.</description>
+      <category>Security</category>
+      <category>Web Development</category>
+    </item>
+  </channel>
+</rss>
